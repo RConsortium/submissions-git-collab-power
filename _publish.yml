@@ -1,0 +1,4 @@
+- source: git-collab.qmd
+  quarto-pub:
+    - id: f8b4531b-e14e-4d73-8b1d-001b0fbf53db
+      url: 'https://eli.quarto.pub/git-collab'
