@@ -19,4 +19,5 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: quarto-pub
+          path: git-collab.qmd
           QUARTO_PUB_AUTH_TOKEN: ${{ secrets.QUARTO_PUB_AUTH_TOKEN }}
