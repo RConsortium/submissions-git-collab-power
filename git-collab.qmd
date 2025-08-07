@@ -1,6 +1,6 @@
 ---
 title: "git-collab"
-author: "Eli Miller, Ben Straub"
+author: "Eli Miller, Ben Straub, Eric Nantz"
 format: html
 editor: visual
 ---
