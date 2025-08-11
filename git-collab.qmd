@@ -1,27 +1,52 @@
 ---
-title: "git-collab"
+title: "Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma"
 author: "Eli Miller, Ben Straub, Eric Nantz"
 format: html
 editor: visual
 ---
 
-## Quarto
+# Introduction
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+In this post, we are going to discuss tools that have allowed the Submissions Working Group Pilot teams to collaborate more effectively. The Pilot teams span many different Pharmas and CROs across the globe and collaboration is the only way forward to success!
 
-## Running Code
+Each section will discuss the tool or process, how it impacted our team and future work with it.  Something something...
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+# renv <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;" />
 
-```{r}
-1 + 1
-```
+## What is a reproducible environment?
 
-You can add options to executable code like this
+<img src="./images/replication_crisis.png" alt="xkcd" style="width: 200px;" />
 
-```{r}
-#| echo: false
-2 * 2
-```
+A reproducible environment refers to a computational setup in which the same conditions, software, configurations, and dependencies can be consistently replicated across different systems or instances to ensure that a process or analysis yields the same results every time it is executed. This is particularly crucial in scientific research, data analysis, and software development to maintain accuracy, reliability, and validation of outcomes. Typically, reproducible environments are achieved through tools such as containerization (e.g., Docker), virtualization, or configuration management systems that document and automate the setup process.
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## How can renv help with this?
+
+The renv package in R is designed to help manage project-specific environments and dependencies, promoting reproducibility and portability across different systems. Here are some key details and reasons why it is useful:
+
+* Isolation of Project Environments: renv enables each R project to maintain its own environment, including specific versions of R packages that the project depends on. This isolation helps prevent dependency conflicts and ensures consistent behavior of code regardless of system or user.
+
+* Snapshot and Restore Functionality: The package allows you to take snapshots of your project's environment, recording the state of package dependencies at a given time. You can easily restore this state even if packages have been updated or changed, ensuring reproducibility of results.
+
+* Easy Sharing and Collaboration: With renv, collaborators using different systems can install exactly the same package versions specified in an renv project. This makes it easier to share projects without worrying about varying dependency setups.
+
+* Dependency Management and Updates: It provides functions to track your project's dependencies, automatically installing necessary packages and allowing updates in a controlled manner. CRAN, Bioconductor, GitHub, and Local Repositories: renv supports package installations from various sources, enabling flexibility for incorporating custom packages or those not available on CRAN.
+
+* Integration with RStudio: It is well-supported in RStudio, enhancing its usability by allowing seamless creation and management of environments directly through the IDE.
+
+Overall, renv helps make R projects more robust, portable, and future-proof by reducing dependency issues, promoting best practices for environment management, and ensuring consistent and reproducible project workflows.
+
+## How did renv impact the Submissions WG?
+
+### Within the Pilot Group
+
+### With the FDA
+
+## Next Steps: A Golden Image?
+
+## Recommened Reading
+
+# GitFlow/PRs 
+
+# Bots/AI
+
+## CI/CD
