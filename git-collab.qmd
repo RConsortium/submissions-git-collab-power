@@ -9,13 +9,13 @@ editor: visual
 
 In this post, we are going to discuss tools that have allowed the Submissions Working Group Pilot teams to collaborate more effectively. The Pilot teams span many different Pharmas and CROs across the globe and collaboration is the only way forward to success!
 
-Each section will discuss the tool or process, how it impacted our team and future work with it.  Something something...
+Each section will discuss the tool or process, how it impacted our team and future work with it. Something something...
 
-# renv <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;" />
+# renv <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;"/>
 
 ## What is a reproducible environment?
 
-<img src="./images/replication_crisis.png" alt="xkcd" style="width: 200px;" />
+<img src="./images/replication_crisis.png" alt="xkcd" style="width: 200px;"/>
 
 A reproducible environment refers to a computational setup in which the same conditions, software, configurations, and dependencies can be consistently replicated across different systems or instances to ensure that a process or analysis yields the same results every time it is executed. This is particularly crucial in scientific research, data analysis, and software development to maintain accuracy, reliability, and validation of outcomes. Typically, reproducible environments are achieved through tools such as containerization (e.g., Docker), virtualization, or configuration management systems that document and automate the setup process.
 
@@ -23,15 +23,15 @@ A reproducible environment refers to a computational setup in which the same con
 
 The renv package in R is designed to help manage project-specific environments and dependencies, promoting reproducibility and portability across different systems. Here are some key details and reasons why it is useful:
 
-* Isolation of Project Environments: renv enables each R project to maintain its own environment, including specific versions of R packages that the project depends on. This isolation helps prevent dependency conflicts and ensures consistent behavior of code regardless of system or user.
+-   Isolation of Project Environments: renv enables each R project to maintain its own environment, including specific versions of R packages that the project depends on. This isolation helps prevent dependency conflicts and ensures consistent behavior of code regardless of system or user.
 
-* Snapshot and Restore Functionality: The package allows you to take snapshots of your project's environment, recording the state of package dependencies at a given time. You can easily restore this state even if packages have been updated or changed, ensuring reproducibility of results.
+-   Snapshot and Restore Functionality: The package allows you to take snapshots of your project's environment, recording the state of package dependencies at a given time. You can easily restore this state even if packages have been updated or changed, ensuring reproducibility of results.
 
-* Easy Sharing and Collaboration: With renv, collaborators using different systems can install exactly the same package versions specified in an renv project. This makes it easier to share projects without worrying about varying dependency setups.
+-   Easy Sharing and Collaboration: With renv, collaborators using different systems can install exactly the same package versions specified in an renv project. This makes it easier to share projects without worrying about varying dependency setups.
 
-* Dependency Management and Updates: It provides functions to track your project's dependencies, automatically installing necessary packages and allowing updates in a controlled manner. CRAN, Bioconductor, GitHub, and Local Repositories: renv supports package installations from various sources, enabling flexibility for incorporating custom packages or those not available on CRAN.
+-   Dependency Management and Updates: It provides functions to track your project's dependencies, automatically installing necessary packages and allowing updates in a controlled manner. CRAN, Bioconductor, GitHub, and Local Repositories: renv supports package installations from various sources, enabling flexibility for incorporating custom packages or those not available on CRAN.
 
-* Integration with RStudio: It is well-supported in RStudio, enhancing its usability by allowing seamless creation and management of environments directly through the IDE.
+-   Integration with RStudio: It is well-supported in RStudio, enhancing its usability by allowing seamless creation and management of environments directly through the IDE.
 
 Overall, renv helps make R projects more robust, portable, and future-proof by reducing dependency issues, promoting best practices for environment management, and ensuring consistent and reproducible project workflows.
 
@@ -45,8 +45,62 @@ Overall, renv helps make R projects more robust, portable, and future-proof by r
 
 ## Recommened Reading
 
-# GitFlow/PRs 
+# GitFlow/PRs
 
-# Bots/AI
+Gitflow is a powerful tool for managing collaborative software efforts. It provides a framework for development efforts and provides a baseline quality for all portions of code that end up in production.
 
-## CI/CD
+The three goals of gitflow are:
+- To maximize useful dev work,
+- to maximize code quality, and
+- to maximize code velocity.
+
+Below is a non-authoritative example of a gitflow process that I have seen used to good effect. 
+```{r flow}
+library(nomnoml)
+
+nomnoml("
+#direction: down
+        [<actor> Development Effort] -> [<state> feat_xyz]
+        [<actor> Development Effort] -> [<state> feat_abc]
+        [<state> feat_xyz] --> [<state> Stage]
+        [<state> feat_abc] --> [<state> Stage]
+        [<state> Stage] --> [<state> Main]
+        [<state> Stage] -:> [Test Environment]
+        [<state> Main] -:> [Production Environment]
+        [<state> Main] -:> [<package> Release|Tag]
+        [<state> Main] -:> [<note> Documentation]
+        ")
+```
+
+# AI and Code Quality
+
+Code quality checks have been very common in code repositories for a long time. These checks can be as simple as checking for syntax errors or as complex as running a full suite of tests against the code.
+
+- Code Style
+- Linting
+- Spelling
+- Testing
+- Code Coverage
+- Build Check
+
+The above are great at answering questions with absolute answers, however this didn't work for comparing TLFs. The graphics don't have to be pixel perfect, however differences in axis, values, labels, or other things are concerning. Human checks are also very labor intensive and error prone. Enter vision AI. At a high-level, we give an AI two images and ask it to compare them. The AI will then return a list of differences between the two images, give a score, and give its opinion if the two images are noticeably dissimilar. This allows us to automate the process of checking TLFs and other graphics for differences, while still allowing humans to review the results and make decisions about the code.
+
+## Structured Chats
+
+Instead of getting back raw text from LLM like you would expect from a chat interface, structured chats allow you to get back structured data that can be used in a variety of ways. This is particularly useful for code review. The ellmer package in the tidyverse allows you to run structured chats with LLMs like Anthropic's Claude. This allows you to ask questions about code and get back structured data that can be used in automated code review.
+
+```
+type_qc_diff <- type_object(
+  difference_list = type_string(),
+  same_conclusion = type_boolean(),
+  difference_score = type_integer()
+)
+res <- chat$chat_structured(
+  prompt,
+  new_image,
+  comp_image,
+  type = type_qc_diffs
+)
+```
+
+# CI/CD
