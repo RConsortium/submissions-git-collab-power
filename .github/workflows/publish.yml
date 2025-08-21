@@ -17,7 +17,7 @@ jobs:
         
       - name: Install Packages
         run: |
-          Rscript -e "install.packages(c('rmarkdown', 'knitr'), repos='https://packagemanager.posit.co/cran/__linux__/noble/latest')"
+          Rscript -e "install.packages(c('rmarkdown', 'knitr', 'nomnoml'), repos='https://packagemanager.posit.co/cran/__linux__/noble/latest')"
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
