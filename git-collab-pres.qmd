@@ -1,17 +1,23 @@
 ---
 title: "Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma"
-author: "Eli Miller, Ben Straub, Eric Nantz"
+author: "Ning Leng, Eli Miller, Ben Straub, Eric Nantz"
 format: revealjs
 ---
 
 ## Intro
 
-## Intro to R Consortium
+Big Ideas:
+
+* Tools that have been used on R Consortium Pilots to collaborate, ensure accuracy, reproducibility
+* Opportunities to learn these tools!
+
+## Intro to R Consortium 
 
 <div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 900px;"/> </div>
 
-
-
+::: footer
+[R Consortium](https://r-consortium.org/)
+:::
 
 ## Intro to R Consortium R-based Submission Pilots to FDA
 
@@ -54,7 +60,7 @@ Questions:
 
 * How can the company ensure the analysis is reproducible when given to a regulatory agency? 
 
-## renv: Reproducible R Package Environments
+## renv: Reproducible R Package Environments <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;"/>
 
 :::{.incremental}
 
