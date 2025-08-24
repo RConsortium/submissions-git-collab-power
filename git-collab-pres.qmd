@@ -80,10 +80,10 @@ Questions:
 * Integrates smoothly with RStudio and other tools
 * Facilitates collaboration by sharing a consistent environment
 
-* The Pilots did/are using this - just in case this wasn't clear!!
+* The Pilots did/are using this - just in case this wasn't clear!! `renv.lock` is the anchor for everything.
 :::
 
-## All the renv you need to know {.smaller}
+## All the renv you need to know (just 8!) {.smaller}
 
 `renv::init()`: Initializes a new renv project by creating a project-specific library and a lockfile. Use this at the start of a new project.
 
@@ -93,7 +93,7 @@ Questions:
 
 `renv::restore()`: Restores the project library from the renv.lock file. Use this when you’re setting up the project on a new system or when you need to ensure package versions match those recorded in the lockfile.
 
-## All the renv you need to know {.smaller}
+## All the renv you need to know (just 8!) {.smaller}
 
 `renv::update()`: Updates the packages in your project and optionally updates the renv.lock file with the new versions.
 
@@ -105,15 +105,16 @@ Questions:
 
 ## renv tips and tricks
 
-* `renvignore`
+* We don't need to deliver every package to regulatory agencies, e.g. as we have built custom solutions to help with our processes we realized these are not actually used in the analysis.  How can we ignore them!?! 
 
-* 
+* `renvignore` is a big win here!
 
+* Don't edit the `renv.lock` file manually - use the nice functions!
 
 ## renv for Pilots
 
 * Using renv allows us to document to FDA our environments
-* FDA uses this 
+* FDA uses this ...
 
 
 
