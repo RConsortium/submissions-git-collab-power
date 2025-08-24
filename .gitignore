@@ -50,5 +50,6 @@ rsconnect/
 
 # Quarto files
 git-collab_files
+git-collab-pres_files
 
 *.html
