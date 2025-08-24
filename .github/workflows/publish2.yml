@@ -19,7 +19,7 @@ jobs:
 
       # Render the specific presentation file and output to the docs folder
       - name: Render Presentation
-        run: quarto render git-collab-pres.qmd
+        run: quarto render git-collab-pres.qmd --output-dir docs
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

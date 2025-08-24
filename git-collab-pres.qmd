@@ -10,10 +10,13 @@ Big Ideas:
 
 * Tools that have been used on R Consortium Pilots to collaborate, ensure accuracy, reproducibility
 * Opportunities to learn these tools!
+* Demonstrations/Educational opportunities...
 
-## Intro to R Consortium 
+## Intro to R Consortium {.smaller}
 
-<div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 900px;"/> </div>
+<div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 1500px;"/> </div>
+
+* Submission Workging Group meets the first Friday of every month.  Join the slack!
 
 ::: footer
 [R Consortium](https://r-consortium.org/)
@@ -28,6 +31,9 @@ Big Ideas:
 <img src="images/pilot4a.png" alt="Hex 4a" style="max-width: 18%; height: auto;"> 
 <img src="images/pilot4b.png" alt="Hex 4b" style="max-width: 20%; height: auto;">
 <img src="images/pilot5.png" alt="Hex 5" style="max-width: 18%; height: auto;">
+<img src="images/OIP.png" alt="Hex 5" style="max-width: 20%; height: auto;">
+<img src="images/OIP.png" alt="Hex 5" style="max-width: 20%; height: auto;">
+<img src="images/OIP.png" alt="Hex 5" style="max-width: 20%; height: auto;">
 </div>
 
 ## Problem Statement
@@ -36,7 +42,7 @@ Big Ideas:
 
 Questions: 
 
-* How do people in the Pilots collaborate, ensure accuracy and reproducibility across multiple companies, platforms, OS, timezones and skillsets?
+* How do people in the Pilots collaborate, ensure accuracy and reproducibility while working across multiple companies, platforms, OS, timezones and skillsets?
 
 
 * renv
@@ -56,9 +62,13 @@ Questions:
 
 ## Reproducibile Environments with Open Source Products
 
+:::{.incremental}
+
 * A drug company uses open source products, like R, to demonstrate that a drug is safe and effective.
 
 * How can the company ensure the analysis is reproducible when given to a regulatory agency? 
+
+:::
 
 ## renv: Reproducible R Package Environments <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;"/>
 
@@ -70,6 +80,7 @@ Questions:
 * Integrates smoothly with RStudio and other tools
 * Facilitates collaboration by sharing a consistent environment
 
+* The Pilots did/are using this - just in case this wasn't clear!!
 :::
 
 ## All the renv you need to know {.smaller}
