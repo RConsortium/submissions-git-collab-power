@@ -53,3 +53,5 @@ git-collab_files
 git-collab-pres_files
 
 *.html
+
+/.quarto/
