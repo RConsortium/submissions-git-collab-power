@@ -8,7 +8,7 @@ format: revealjs
 
 ## Intro to R Consortium
 
-<div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 350px;"/> </div>
+<div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 900px;"/> </div>
 
 
 ## Intro to R Consortium R-based Submission Pilots to FDA
