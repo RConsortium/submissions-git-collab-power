@@ -200,18 +200,18 @@ Ning Leng, Eli Miller, Ben Straub, Eric Nantz
 <li class="fragment"><p>Simplifies dependency management and restoration</p></li>
 <li class="fragment"><p>Integrates smoothly with RStudio and other tools</p></li>
 <li class="fragment"><p>Facilitates collaboration by sharing a consistent environment</p></li>
-<li class="fragment"><p>The Pilots did/are using this - just in case this wasn’t clear!!</p></li>
+<li class="fragment"><p>The Pilots did/are using this - just in case this wasn’t clear!! <code>renv.lock</code> is the anchor for everything.</p></li>
 </ul>
 </section>
-<section id="all-the-renv-you-need-to-know" class="slide level2 smaller">
-<h2>All the renv you need to know</h2>
+<section id="all-the-renv-you-need-to-know-just-8" class="slide level2 smaller">
+<h2>All the renv you need to know (just 8!)</h2>
 <p><code>renv::init()</code>: Initializes a new renv project by creating a project-specific library and a lockfile. Use this at the start of a new project.</p>
 <p><code>renv::install()</code>: Installs packages into your project’s local library. This command can install a package from CRAN, GitHub, or local source.</p>
 <p><code>renv::snapshot()</code>: Captures the state of your current project environment and writes it to the renv.lock file. This ensures that the project dependencies are tracked for future use or collaboration.</p>
 <p><code>renv::restore()</code>: Restores the project library from the renv.lock file. Use this when you’re setting up the project on a new system or when you need to ensure package versions match those recorded in the lockfile.</p>
 </section>
-<section id="all-the-renv-you-need-to-know-1" class="slide level2 smaller">
-<h2>All the renv you need to know</h2>
+<section id="all-the-renv-you-need-to-know-just-8-1" class="slide level2 smaller">
+<h2>All the renv you need to know (just 8!)</h2>
 <p><code>renv::update()</code>: Updates the packages in your project and optionally updates the renv.lock file with the new versions.</p>
 <p><code>renv::status()</code>: Checks for any discrepancies between the state of the project’s library and the renv.lock file. This helps identify packages that might be out-of-sync.</p>
 <p><code>renv::remove()</code>: Removes one or more packages from your project’s library, making it easy to manage unused dependencies.</p>
@@ -220,15 +220,16 @@ Ning Leng, Eli Miller, Ben Straub, Eric Nantz
 <section id="renv-tips-and-tricks" class="slide level2">
 <h2>renv tips and tricks</h2>
 <ul>
-<li><p><code>renvignore</code></p></li>
-<li></li>
+<li><p>We don’t need to deliver every package to regulatory agencies, e.g.&nbsp;as we have built custom solutions to help with our processes we realized these are not actually used in the analysis. How can we ignore them!?!</p></li>
+<li><p><code>renvignore</code> is a big win here!</p></li>
+<li><p>Don’t edit the <code>renv.lock</code> file manually - use the nice functions!</p></li>
 </ul>
 </section>
 <section id="renv-for-pilots" class="slide level2">
 <h2>renv for Pilots</h2>
 <ul>
 <li>Using renv allows us to document to FDA our environments</li>
-<li>FDA uses this</li>
+<li>FDA uses this …</li>
 </ul>
 
 </section>
