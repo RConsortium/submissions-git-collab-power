@@ -10,22 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v2
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-  - name: Set up Quarto
-    uses: quarto-dev/quarto-actions/setup@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
 
-  # Render the specific presentation file and output to the docs folder
-  - name: Render Presentation
-    run: quarto render git-collab-pres.qmd
-      
-
-
-  - name: Deploy to GitHub Pages
-    uses: peaceiris/actions-gh-pages@v3
-    with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
-      publish_branch: gh-pages
-      publish_dir: docs
+      # Render the specific presentation file and output to the docs folder
+      - name: Render Presentation
+        run: quarto render git-collab-pres.qmd
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: docs
