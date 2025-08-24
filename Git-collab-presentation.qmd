@@ -1,0 +1,18 @@
+---
+title: "Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma"
+author: "Eli Miller, Ben Straub, Eric Nantz"
+format: revealjs
+editor: visual
+---
+
+## Ben
+
+Ben's Section
+
+## Eli
+
+Eli's Section
+
+## Eric
+
+Eric's Section
