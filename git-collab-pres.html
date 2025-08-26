@@ -29,10 +29,12 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="git-collab-pres_files/libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="git-collab-pres_files/libs/revealjs/dist/theme/quarto-816793a8a4a837d14f6ea458e2f1c5cb.css">
   <link href="git-collab-pres_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="git-collab-pres_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="git-collab-pres_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="git-collab-pres_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="git-collab-pres_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="git-collab-pres_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -245,15 +247,22 @@ Ning Leng, Eli Miller, Ben Straub, Eric Nantz
 </div><div class="column" style="width:50%;">
 <p><img data-src="images/nomnoml.png"></p>
 </div></div>
-</section>
+
+<aside><div>
+<ul>
+<li>Nonauthoritative, only take the parts you need!</li>
+</ul>
+</div></aside></section>
 <section id="deployments" class="slide level2">
-<h2>Deployments</h2>
-</section>
+<h2>🚀Deployments</h2>
+<p>Code being deployed out to the world</p>
+
+<img data-src="images/deployment.png" class="r-stretch"></section>
 <section id="pull-requests-and-collaboration" class="slide level2">
 <h2>Pull Requests and Collaboration</h2>
-<p>Code moving between branches or a transision of state</p>
+<p>Code moving between branches or a transision of “state.” A structured way for reviewing code</p>
 
-<img data-src="images/PRScreenshot.png" class="r-stretch"></section>
+<img data-src="images/PRScreenshot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="code-quality-automated" class="slide level2">
 <h2>Code Quality <em>Automated</em></h2>
 <div class="columns">
@@ -294,8 +303,9 @@ res &lt;- chat$chat_structured(
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="images/rcon.png" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p>Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma</p>
 </div>
 </div></div>
 
@@ -306,6 +316,7 @@ res &lt;- chat$chat_structured(
   <script src="git-collab-pres_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="git-collab-pres_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="git-collab-pres_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="git-collab-pres_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="git-collab-pres_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -327,7 +338,8 @@ res &lt;- chat$chat_structured(
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -453,7 +465,7 @@ res &lt;- chat$chat_structured(
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'fade',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -498,7 +510,7 @@ res &lt;- chat$chat_structured(
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
