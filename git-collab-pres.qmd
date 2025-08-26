@@ -2,6 +2,8 @@
 title: "Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma"
 author: "Ning Leng, Eli Miller, Ben Straub, Eric Nantz"
 format: revealjs
+revealjs-plugins:
+  - codewindow
 ---
 
 ## Intro
