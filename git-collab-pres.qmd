@@ -153,12 +153,6 @@ _Our goals_:
 * Nonauthoritative, only take the parts you need!
 :::
 
-## 🚀Deployments
-
-Code being deployed out to the world
-
-![](images/deployment.png)
-
 ## Pull Requests and Collaboration
 
 Code moving between branches or a transision of "state." A structured way for reviewing code
@@ -220,5 +214,11 @@ res <- chat$chat_structured(
 :::
 
 ::::
+
+## 🚀Deployments
+
+Code being deployed out to the world
+
+![](images/deployment.png)
 
 {{< include _automation.qmd >}}
