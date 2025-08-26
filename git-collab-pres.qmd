@@ -206,3 +206,4 @@ res <- chat$chat_structured(
 
 ::::
 
+{{< include _automation.qmd >}}

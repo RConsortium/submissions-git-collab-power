@@ -1,0 +1,95 @@
+## Manual Work
+
+:::: {.columns}
+
+::: {.column style="width: 70%; font-size: 70%;"}
+
+Assemble Pilot files to meet [eCTD specifications](https://www.fda.gov/media/85816/download):
+
+::: {.incremental}
+- [x] Create folder structure
+- [x] Compile ADRG and cover letter
+- [x] Move datasets and programs to correct location
+- [x] Update file names to comply with requirements
+- [x] Push updates to separate GitHub repository
+:::
+:::
+
+::: {.column width="30%"}
+
+![](images/ectd_structure.png)
+:::
+
+::::
+
+::: {.notes}
+Paper with eCTD folder structure graphic https://www.lexjansen.com/phuse-us/2019/sa/SA04.pdf
+
+Easy to make a mistake and miss a key step!
+:::
+
+## Step 1: Bash Scripting
+
+::: {.codewindow style="font-size: 0.42em;"}
+create-ectd-bundle.sh
+```bash
+# Define file and directory paths
+ECTD_BUNDLE_DIR=submissions-pilot5-datasetjson-to-fda
+ECTD_LETTER_DIR=${ECTD_BUNDLE_DIR}/m1/us
+ECTD_ROOT_DIR=${ECTD_BUNDLE_DIR}/m5/datasets/rconsortiumpilot4container/analysis/adam
+
+# additional paths ...
+
+# Create directory structure for ectd bundle
+mkdir -p "${ECTD_LETTER_DIR}"
+mkdir -p "${ECTD_PROGRAMS_DIR}"
+mkdir -p "${ECTD_ADAM_DATASETS_DIR}"
+mkdir -p "${ECTD_SDTM_DATASETS_DIR}"
+
+# example: copy helper fcns script
+if [ -f "${PROGRAMS_SOURCE_DIR}/pilot5-helper-fcns.r" ]; then
+cp "${PROGRAMS_SOURCE_DIR}/pilot5-helper-fcns.r" "${PROGRAMS_DESTINATION_DIR}/."
+echo "pilot 5 helper script copied to ${PROGRAMS_DESTINATION_DIR}/pilot5-helper-fcns.r"
+fi
+
+# additional operations ...
+```
+:::
+
+::: footer
+[Pilot 5 Create eCTD Bundle Script](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/create-ectd-bundle.sh)
+:::
+
+## Step 2: GitHub Action
+
+Run **automatically** on each push to main branch event
+
+::: {.codewindow style="font-size: 0.6em;"}
+publish-ectd-bundle.yaml
+```yaml
+- name: Create ECTD bundle
+  run: bash ./.github/scripts/create-ectd-bundle.sh
+
+- name: Archive ECTD bundle
+  uses: actions/upload-artifact@v4
+  with:
+    name: ectd-bundle-archive
+    path: submissions-pilot5-datasetjson-to-fda
+
+- name: Push ECTD bundle repository
+  run: bash ./.github/scripts/push-ectd-bundle.sh
+```
+:::
+
+::: footer
+[Pilot 5 Publish eCTD Bundle Repository Action](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/workflows/publish-ectd-bundle.yaml)
+:::
+
+## GitHub Actions to the Rescue
+
+* GH actions can execute arbritrary commands, or even scripts
+* Created bash script to perform necessary file operations in a systematic way
+* Verified script did the job on local machine
+* Add to custom GitHub action step
+* Print custom messages to indicate progress
+
