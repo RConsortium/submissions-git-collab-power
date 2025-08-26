@@ -8,6 +8,8 @@ format:
     transition: fade
     theme: serif
     chalkboard: true
+revealjs-plugins:
+  - codewindow
 ---
 
 ## Intro
@@ -219,3 +221,4 @@ res <- chat$chat_structured(
 
 ::::
 
+{{< include _automation.qmd >}}
