@@ -1,6 +1,6 @@
 ---
 title: "Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma"
-author: "Ning Leng, Eli Miller, Ben Straub, Eric Nantz"
+author: "Eli Miller, Ben Straub, Eric Nantz"
 format: 
   revealjs:
     logo: images/rcon.png
@@ -14,15 +14,15 @@ format:
 
 Big Ideas:
 
-* Tools that have been used on R Consortium Pilots to collaborate, ensure accuracy, reproducibility
-* Opportunities to learn these tools!
-* Demonstrations/Educational opportunities...
+* Tools that have been used on R Consortium FDA Pilots to collaborate and to ensure accuracy and reproducibility
+* Pilots are great places to learn about how to deploy and interact with these tools!
+* Pilots are demonstrations/educational opportunities to see open-source in use!
 
 ## Intro to R Consortium {.smaller}
 
 <div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 1500px;"/> </div>
 
-* Submission Workging Group meets the first Friday of every month.  Join the slack!
+* Submission Working Group meets the first Friday of every month.  Open to all! Join the slack!
 
 ::: footer
 [R Consortium](https://r-consortium.org/)
@@ -38,17 +38,13 @@ Big Ideas:
 <img src="images/pilot4b.png" alt="Hex 4b" style="max-width: 20%; height: auto;">
 <img src="images/pilot5.png" alt="Hex 5" style="max-width: 18%; height: auto;">
 <img src="images/OIP.png" alt="Hex 5" style="max-width: 20%; height: auto;">
-<img src="images/OIP.png" alt="Hex 5" style="max-width: 20%; height: auto;">
-<img src="images/OIP.png" alt="Hex 5" style="max-width: 20%; height: auto;">
 </div>
 
 ## Problem Statement
 
 :::{.incremental}
 
-Questions: 
-
-* How do people in the Pilots collaborate, ensure accuracy and reproducibility while working across multiple companies, platforms, OS, timezones and skillsets?
+* How do people in the Pilots collaborate, ensure accuracy and reproducibility while working across multiple companies, platforms, OS, timezone and skill sets?
 
 
 * renv
@@ -57,6 +53,8 @@ Questions:
 * LLMs
 
 :::
+
+# Reproducibile Environments
 
 ## Reproducibile Environments with Open Source Products
 
@@ -76,51 +74,54 @@ Questions:
 
 :::
 
-## renv: Reproducible R Package Environments <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;"/>
+## renv: Reproducible R Package Environments <img src="./images/renv.png" alt="renv Hex Sticker" style="width: 75px; vertical-align: middle; margin-left: 10px;"/> {.smaller}
 
 :::{.incremental}
 
 * Isolates project-specific R package libraries
 * Captures and locks package versions for reproducibility
+  * `renv.lock`
+  * FDA uses this to rebuild environment and LLMs consume to build the ADRG
+  * The Pilots did/are using this - just in case this wasn't clear!! `renv.lock` is the anchor for everything.
 * Simplifies dependency management and restoration
+  * Packages depend on other packages!!
 * Integrates smoothly with RStudio and other tools
 * Facilitates collaboration by sharing a consistent environment
-
-* The Pilots did/are using this - just in case this wasn't clear!! `renv.lock` is the anchor for everything.
 :::
 
 ## All the renv you need to know (just 8!) {.smaller}
 
-`renv::init()`: Initializes a new renv project by creating a project-specific library and a lockfile. Use this at the start of a new project.
+:::{.incremental}
+* `renv::init()`: Initializes a new renv project by creating a project-specific library and a lockfile. Use this at the start of a new project.
 
-`renv::install()`: Installs packages into your project’s local library. This command can install a package from CRAN, GitHub, or local source.
+* `renv::install()`: Installs packages into your project’s local library. This command can install a package from CRAN, GitHub, or local source.
 
-`renv::snapshot()`: Captures the state of your current project environment and writes it to the renv.lock file. This ensures that the project dependencies are tracked for future use or collaboration.
+* `renv::snapshot()`: Captures the state of your current project environment and writes it to the renv.lock file. This ensures that the project dependencies are tracked for future use or collaboration.
 
-`renv::restore()`: Restores the project library from the renv.lock file. Use this when you’re setting up the project on a new system or when you need to ensure package versions match those recorded in the lockfile.
+* `renv::restore()`: Restores the project library from the renv.lock file. Use this when you’re setting up the project on a new system or when you need to ensure package versions match those recorded in the lockfile.
+:::
 
 ## All the renv you need to know (just 8!) {.smaller}
 
-`renv::update()`: Updates the packages in your project and optionally updates the renv.lock file with the new versions.
+:::{.incremental}
+* `renv::update()`: Updates the packages in your project and optionally updates the renv.lock file with the new versions.
 
-`renv::status()`: Checks for any discrepancies between the state of the project’s library and the renv.lock file. This helps identify packages that might be out-of-sync.
+* `renv::status()`: Checks for any discrepancies between the state of the project’s library and the renv.lock file. This helps identify packages that might be out-of-sync.
 
-`renv::remove()`: Removes one or more packages from your project’s library, making it easy to manage unused dependencies.
+* `renv::remove()`: Removes one or more packages from your project’s library, making it easy to manage unused dependencies.
 
-`renv::clean()`: Cleans up the project’s library by removing unused packages that aren’t required based on the renv.lock file.
+* `renv::clean()`: Cleans up the project’s library by removing unused packages that aren’t required based on the renv.lock file.
+:::
 
 ## renv tips and tricks
 
 * We don't need to deliver every package to regulatory agencies, e.g. as we have built custom solutions to help with our processes we realized these are not actually used in the analysis.  How can we ignore them!?! 
 
-* `renvignore` is a big win here!
-
+* `.renvignore` is a big win here!  Just like a `.gitignore`
 * Don't edit the `renv.lock` file manually - use the nice functions!
+* Don't be scarred to update to latest packages either - but use the nice functions!
 
-## renv for Pilots
-
-* Using renv allows us to document to FDA our environments
-* FDA uses this ...
+# git/GitHub
 
 ## Gitflow
 
