@@ -4,7 +4,7 @@
 
 ::: {.column style="width: 70%; font-size: 70%;"}
 
-Assemble Pilot files to meet [eCTD specifications](https://www.fda.gov/media/85816/download):
+Assemble Submission Pilot 5 files to meet [eCTD specifications](https://www.fda.gov/media/85816/download):
 
 ::: {.incremental}
 - [x] Create folder structure
@@ -28,7 +28,39 @@ Paper with eCTD folder structure graphic https://www.lexjansen.com/phuse-us/2019
 Easy to make a mistake and miss a key step!
 :::
 
-## Step 1: Bash Scripting
+## {background-image="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExczRkYWJnN3ZmYzZsYjZpNWNlNzJ0eWNvMnR2eWRmN3RibXV5MnVzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ReImZejkBnqYU/giphy.gif" background-size="contain"}
+
+::: {.notes}
+- Easy to get frustrated while trying to get these pilots actually working
+- Credit: https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExczRkYWJnN3ZmYzZsYjZpNWNlNzJ0eWNvMnR2eWRmN3RibXV5MnVzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ReImZejkBnqYU/giphy.gif
+:::
+
+## GitHub Actions to the Rescue!
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+* Run arbritrary commands or **scripts** inside workflow
+* Launch on key events (updates to **main** branch) or schedule (cron)
+* Perform Git operations on our behalf 
+
+:::
+
+::: {.column width="40%"}
+
+![](images/lego_boss_office.jpg)
+
+:::
+
+::::
+
+::: {.notes}
+Image credit: LEGO The Office set https://www.lego.com/en-us/product/the-office-21336
+:::
+
+
+## Bash Scripting
 
 ::: {.codewindow style="font-size: 0.42em;"}
 create-ectd-bundle.sh
@@ -60,7 +92,34 @@ fi
 [Pilot 5 Create eCTD Bundle Script](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/create-ectd-bundle.sh)
 :::
 
-## Step 2: GitHub Action
+## Bash Scripting (continued)
+
+::: {.codewindow style="font-size: 0.42em;"}
+push-ectd-bundle.sh
+```bash
+# Set up file paths
+ECTD_REPO_DIR=submissions-pilot5-datasetjson-to-fda
+
+# Navigate to clone of ECTD repo
+cd "./${ECTD_REPO_DIR}"
+echo "Open root of ECTD GitHub Repo"
+
+# Commit updated bundle to repository
+git add -A .
+git config user.name github-actions
+git config user.email github-actions@github.com
+git commit -am "GH Action: Update Pilot 5 ECTD bundle"
+git push --set-upstream origin main
+
+echo "Updated ECTD bundle successfully to repository"
+```
+:::
+
+::: footer
+[Pilot 5 Push eCTD Bundle Script](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/push-ectd-bundle.sh)
+:::
+
+## GitHub Action Workflow Steps
 
 Run **automatically** on each push to main branch event
 
@@ -85,11 +144,8 @@ publish-ectd-bundle.yaml
 [Pilot 5 Publish eCTD Bundle Repository Action](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/workflows/publish-ectd-bundle.yaml)
 :::
 
-## GitHub Actions to the Rescue
+## Automation for the Win {background-image="images/pilot5_ectd_repo.png" background-size="45%"}
 
-* GH actions can execute arbritrary commands, or even scripts
-* Created bash script to perform necessary file operations in a systematic way
-* Verified script did the job on local machine
-* Add to custom GitHub action step
-* Print custom messages to indicate progress
-
+::: footer
+[Pilot 5 eCTD Bundle Repository](https://github.com/RConsortium/submissions-pilot5-datasetjson-to-fda)
+:::
