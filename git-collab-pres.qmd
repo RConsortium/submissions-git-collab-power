@@ -116,30 +116,43 @@ Questions:
 * Using renv allows us to document to FDA our environments
 * FDA uses this ...
 
-## Gitflow and pull requests
+## Gitflow
 
-```{r flow}
-library(nomnoml)
+::::{.columns}
 
-nomnoml("
-#direction: down
-        [<actor> Development Effort] -> [<state> feat_xyz]
-        [<actor> Development Effort] -> [<state> feat_abc]
-        [<state> feat_xyz] --> [<state> Stage]
-        [<state> feat_abc] --> [<state> Stage]
-        [<state> Stage] --> [<state> Main]
-        [<state> Stage] -:> [Test Environment]
-        [<state> Main] -:> [Production Environment]
-        [<state> Main] -:> [<package> Release|Tag]
-        [<state> Main] -:> [<note> Documentation]
-        ")
-```
+:::{.column width="50%"}
 
-Add PR example with collab comments
+_Our goals_:
 
-## Code Quality
+* To maximize useful dev work,
 
-pic of Code actions
+* to maximize code quality, and
+
+* to maximize code velocity.
+
+:::
+
+:::{.column width="50%"}
+
+![](images/nomnoml.png)
+
+:::
+
+::::
+
+## Deployments
+
+## Pull Requests and Collaboration
+
+Code moving between branches or a transision of state
+
+![](images/PRScreenshot.png)
+
+## Code Quality *Automated*
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 -   Code Style
 -   Linting
@@ -148,9 +161,23 @@ pic of Code actions
 -   Code Coverage
 -   Build Check
 
-## Code Quality *And* AI
+:::
 
-🤖 A **structured** chat
+::: {.column witdth="50%"}
+
+![](images/WorkflowScreenshot.png)
+
+:::
+
+::::
+
+## Code Quality *and* AI
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+💬 A **structured** chat
 
 ```         
 type_qc_diff <- type_object(
@@ -166,6 +193,14 @@ res <- chat$chat_structured(
 )
 ```
 
-## Putting it all together
+:::
 
-SS of Bot comments
+::: {.column width="50%"}
+🤖 and a **structured** result
+
+![](images/BotComment.png)
+
+:::
+
+::::
+

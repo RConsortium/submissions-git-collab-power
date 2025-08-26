@@ -1,4 +1,8 @@
 - source: git-collab.qmd
   quarto-pub:
     - id: f8b4531b-e14e-4d73-8b1d-001b0fbf53db
-      url: 'https://eli.quarto.pub/git-collab'
+      url: https://eli.quarto.pub/git-collab
+- source: git-collab-pres.qmd
+  quarto-pub:
+    - id: e58e2ad4-8e55-4991-9a3b-98f7a21a48a4
+      url: https://eli.quarto.pub/unlocking-collaborative-power-with-git-github-cicd-and-llms-in-pharma
