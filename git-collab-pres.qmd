@@ -184,13 +184,15 @@ Code moving between branches or a transision of "state." A structured way for re
 
 ## Code Quality *and* AI
 
-:::: {.columns}
+::::: {.columns}
 
-::: {.column width="50%"}
+:::: {.column width="50%"}
 
 💬 A **structured** chat
 
-```         
+::: {.codewindow style="font-size: 0.6em;"}
+tlf-qc.qmd
+```r 
 type_qc_diff <- type_object(
   difference_list = type_string(),
   same_conclusion = type_boolean(),
@@ -206,14 +208,16 @@ res <- chat$chat_structured(
 
 :::
 
-::: {.column width="50%"}
+::::
+
+:::: {.column width="50%"}
 🤖 and a **structured** result
 
 ![](images/BotComment.png)
 
-:::
-
 ::::
+
+:::::
 
 ## 🚀Deployments
 
