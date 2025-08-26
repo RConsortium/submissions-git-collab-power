@@ -1,7 +1,13 @@
 ---
 title: "Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma"
 author: "Ning Leng, Eli Miller, Ben Straub, Eric Nantz"
-format: revealjs
+format: 
+  revealjs:
+    logo: images/rcon.png
+    footer: Unlocking Collaborative Power with Git, GitHub CI/CD, and LLMs in Pharma
+    transition: fade
+    theme: serif
+    chalkboard: true
 ---
 
 ## Intro
@@ -140,13 +146,21 @@ _Our goals_:
 
 ::::
 
-## Deployments
+::: aside
+* Nonauthoritative, only take the parts you need!
+:::
+
+## 🚀Deployments
+
+Code being deployed out to the world
+
+![](images/deployment.png)
 
 ## Pull Requests and Collaboration
 
-Code moving between branches or a transision of state
+Code moving between branches or a transision of "state." A structured way for reviewing code
 
-![](images/PRScreenshot.png)
+![](images/PRScreenshot.png){fig-align="center"}
 
 ## Code Quality *Automated*
 
