@@ -55,3 +55,6 @@ git-collab-pres_files
 *.html
 
 /.quarto/
+
+# nix files
+result
