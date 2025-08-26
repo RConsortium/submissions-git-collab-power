@@ -116,8 +116,56 @@ Questions:
 * Using renv allows us to document to FDA our environments
 * FDA uses this ...
 
+## Gitflow and pull requests
 
+```{r flow}
+library(nomnoml)
 
+nomnoml("
+#direction: down
+        [<actor> Development Effort] -> [<state> feat_xyz]
+        [<actor> Development Effort] -> [<state> feat_abc]
+        [<state> feat_xyz] --> [<state> Stage]
+        [<state> feat_abc] --> [<state> Stage]
+        [<state> Stage] --> [<state> Main]
+        [<state> Stage] -:> [Test Environment]
+        [<state> Main] -:> [Production Environment]
+        [<state> Main] -:> [<package> Release|Tag]
+        [<state> Main] -:> [<note> Documentation]
+        ")
+```
 
+Add PR example with collab comments
 
+## Code Quality
 
+pic of Code actions
+
+-   Code Style
+-   Linting
+-   Spelling
+-   Testing
+-   Code Coverage
+-   Build Check
+
+## Code Quality *And* AI
+
+🤖 A **structured** chat
+
+```         
+type_qc_diff <- type_object(
+  difference_list = type_string(),
+  same_conclusion = type_boolean(),
+  difference_score = type_integer()
+)
+res <- chat$chat_structured(
+  prompt,
+  new_image,
+  comp_image,
+  type = type_qc_diffs
+)
+```
+
+## Putting it all together
+
+SS of Bot comments
