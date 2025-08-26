@@ -360,17 +360,20 @@ Eli Miller, Ben Straub, Eric Nantz
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>💬 A <strong>structured</strong> chat</p>
-<pre><code>type_qc_diff &lt;- type_object(
-  difference_list = type_string(),
-  same_conclusion = type_boolean(),
-  difference_score = type_integer()
-)
-res &lt;- chat$chat_structured(
-  prompt,
-  new_image,
-  comp_image,
-  type = type_qc_diffs
-)</code></pre>
+<div class="codewindow" style="font-size: 0.6em;">
+<p>tlf-qc.qmd</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>type_qc_diff <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
+<span id="cb1-2"><a href=""></a>  <span class="at">difference_list =</span> <span class="fu">type_string</span>(),</span>
+<span id="cb1-3"><a href=""></a>  <span class="at">same_conclusion =</span> <span class="fu">type_boolean</span>(),</span>
+<span id="cb1-4"><a href=""></a>  <span class="at">difference_score =</span> <span class="fu">type_integer</span>()</span>
+<span id="cb1-5"><a href=""></a>)</span>
+<span id="cb1-6"><a href=""></a>res <span class="ot">&lt;-</span> chat<span class="sc">$</span><span class="fu">chat_structured</span>(</span>
+<span id="cb1-7"><a href=""></a>  prompt,</span>
+<span id="cb1-8"><a href=""></a>  new_image,</span>
+<span id="cb1-9"><a href=""></a>  comp_image,</span>
+<span id="cb1-10"><a href=""></a>  <span class="at">type =</span> type_qc_diffs</span>
+<span id="cb1-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div><div class="column" style="width:50%;">
 <p>🤖 and a <strong>structured</strong> result</p>
 <p><img data-src="images/BotComment.png"></p>
