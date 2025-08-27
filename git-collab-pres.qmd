@@ -14,17 +14,19 @@ revealjs-plugins:
 
 ## Intro
 
-Big Ideas:
+Objectives:
 
-* Tools that have been used on R Consortium FDA Pilots to collaborate and to ensure accuracy and reproducibility
-* Pilots are great places to learn about how to deploy and interact with these tools!
-* Pilots are demonstrations/educational opportunities to see open-source in use!
+* Learn about Tools that have been used on the R Consortium FDA Pilots to collaborate and to ensure accuracy and reproducibility.
+  * renv, git/GitHub, LLMs, CI/CD
+* Learn more about the Pilots and their role in helping to make R and open source a viable option
+for delivering safe and effective drug submissions.
 
 ## Intro to R Consortium {.smaller}
 
 <div style="text-align: center;"> <img src="./images/rconsortium.png" alt="xkcd" style="width: 1500px;"/> </div>
 
-* Submission Working Group meets the first Friday of every month.  Open to all! Join the slack!
+* Submission Working Group meets the first Friday of every month.  Open to all! 
+* Click [here](https://rconsortium.github.io/submissions-wg/join.html) to learn how to join.
 
 ::: footer
 [R Consortium](https://r-consortium.org/)
@@ -91,29 +93,101 @@ Big Ideas:
 * Facilitates collaboration by sharing a consistent environment
 :::
 
-## All the renv you need to know (just 8!) {.smaller}
+## Peek at the `renv.lock`
 
-:::{.incremental}
-* `renv::init()`: Initializes a new renv project by creating a project-specific library and a lockfile. Use this at the start of a new project.
-
-* `renv::install()`: Installs packages into your project’s local library. This command can install a package from CRAN, GitHub, or local source.
-
-* `renv::snapshot()`: Captures the state of your current project environment and writes it to the renv.lock file. This ensures that the project dependencies are tracked for future use or collaboration.
-
-* `renv::restore()`: Restores the project library from the renv.lock file. Use this when you’re setting up the project on a new system or when you need to ensure package versions match those recorded in the lockfile.
+::: {.codewindow style="font-size: 0.6em;"}
+```r
+{
+  "R": {
+    "Version": "4.4.3",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://packagemanager.posit.co/cran"
+      }
+    ]
+  },
+  "Packages": {
+    "MASS": {
+      "Package": "MASS",
+      "Version": "7.3-65",
+      "Source": "Repository",
+      "Priority": "recommended",
+      "Date": "2025-02-19",
+      "Revision": "$Rev: 3681 $",
+      "Depends": [
+        "R (>= 4.4.0)",
+        "grDevices",
+        "graphics",
+        "stats",
+        "utils"
+      ],
+      "Imports": [
+        "methods"
+      ],
+      "Suggests": [
+        "lattice",
+        "nlme",
+        "nnet",
+        "survival"
+      ],
+      "Authors@R": "c(person(\"Brian\", \"Ripley\", role = c(\"aut\", \"cre\", \"cph\"), email = \"Brian.Ripley@R-project.org\"), person(\"Bill\", \"Venables\", role = c(\"aut\", \"cph\")), person(c(\"Douglas\", \"M.\"), \"Bates\", role = \"ctb\"), person(\"Kurt\", \"Hornik\", role = \"trl\", comment = \"partial port ca 1998\"), person(\"Albrecht\", \"Gebhardt\", role = \"trl\", comment = \"partial port ca 1998\"), person(\"David\", \"Firth\", role = \"ctb\", comment = \"support functions for polr\"))",
+      "Description": "Functions and datasets to support Venables and Ripley, \"Modern Applied Statistics with S\" (4th edition, 2002).",
+      "Title": "Support Functions and Datasets for Venables and Ripley's MASS",
+      "LazyData": "yes",
+      "ByteCompile": "yes",
+      "License": "GPL-2 | GPL-3",
+      "URL": "http://www.stats.ox.ac.uk/pub/MASS4/",
+      "Contact": "<MASS@stats.ox.ac.uk>",
+      "NeedsCompilation": "yes",
+      "Author": "Brian Ripley [aut, cre, cph], Bill Venables [aut, cph], Douglas M. Bates [ctb], Kurt Hornik [trl] (partial port ca 1998), Albrecht Gebhardt [trl] (partial port ca 1998), David Firth [ctb] (support functions for polr)",
+      "Maintainer": "Brian Ripley <Brian.Ripley@R-project.org>",
+      "Repository": "CRAN"
+    }
+...
+```
 :::
 
-## All the renv you need to know (just 8!) {.smaller}
-
-:::{.incremental}
-* `renv::update()`: Updates the packages in your project and optionally updates the renv.lock file with the new versions.
-
-* `renv::status()`: Checks for any discrepancies between the state of the project’s library and the renv.lock file. This helps identify packages that might be out-of-sync.
-
-* `renv::remove()`: Removes one or more packages from your project’s library, making it easy to manage unused dependencies.
-
-* `renv::clean()`: Cleans up the project’s library by removing unused packages that aren’t required based on the renv.lock file.
+::: footer
+[Pilot 5 renv.lock](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/renv.lock)
 :::
+
+
+## 4 key renv commands {.smaller}
+
+::::: {.columns}
+
+:::: {.column width="50%"}
+
+::: {.codewindow style="font-size: 0.6em;"}
+renv.R
+```r 
+renv::init()
+
+renv::status()
+
+renv::snapshot()
+
+renv::remove()
+```
+
+:::
+
+::::
+
+:::: {.column width="50%"}
+
+* Initializes a new renv project by creating a project-specific library and a lockfile.
+
+* Checks for any discrepancies between the state of the project’s library and the `renv.lock` file. 
+
+* Captures the state of your current project environment and writes it to the `renv.lock` file. 
+
+* Removes one or more packages from your project’s library, making it easy to manage unused dependencies.
+
+::::
+
+:::::
 
 ## renv tips and tricks
 
