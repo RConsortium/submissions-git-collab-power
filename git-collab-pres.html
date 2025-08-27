@@ -209,11 +209,13 @@ Eli Miller, Ben Straub, Eric Nantz
 </section>
 <section id="intro" class="slide level2">
 <h2>Intro</h2>
-<p>Big Ideas:</p>
+<p>Objectives:</p>
 <ul>
-<li>Tools that have been used on R Consortium FDA Pilots to collaborate and to ensure accuracy and reproducibility</li>
-<li>Pilots are great places to learn about how to deploy and interact with these tools!</li>
-<li>Pilots are demonstrations/educational opportunities to see open-source in use!</li>
+<li>Learn about Tools that have been used on the R Consortium FDA Pilots to collaborate and to ensure accuracy and reproducibility.
+<ul>
+<li>renv, git/GitHub, LLMs, CI/CD</li>
+</ul></li>
+<li>Learn more about the Pilots and their role in helping to make R and open source a viable option for delivering safe and effective drug submissions.</li>
 </ul>
 </section>
 <section id="intro-to-r-consortium" class="slide level2 smaller">
@@ -222,7 +224,8 @@ Eli Miller, Ben Straub, Eric Nantz
 <img src="./images/rconsortium.png" alt="xkcd" style="width: 1500px;">
 </div>
 <ul>
-<li>Submission Working Group meets the first Friday of every month. Open to all! Join the slack!</li>
+<li>Submission Working Group meets the first Friday of every month. Open to all!</li>
+<li>Click <a href="https://rconsortium.github.io/submissions-wg/join.html">here</a> to learn how to join.</li>
 </ul>
 <div class="footer">
 <p><a href="https://r-consortium.org/">R Consortium</a></p>
@@ -283,23 +286,84 @@ Eli Miller, Ben Straub, Eric Nantz
 <li class="fragment">Facilitates collaboration by sharing a consistent environment</li>
 </ul>
 </section>
-<section id="all-the-renv-you-need-to-know-just-8" class="slide level2 smaller">
-<h2>All the renv you need to know (just 8!)</h2>
-<ul>
-<li class="fragment"><p><code>renv::init()</code>: Initializes a new renv project by creating a project-specific library and a lockfile. Use this at the start of a new project.</p></li>
-<li class="fragment"><p><code>renv::install()</code>: Installs packages into your project’s local library. This command can install a package from CRAN, GitHub, or local source.</p></li>
-<li class="fragment"><p><code>renv::snapshot()</code>: Captures the state of your current project environment and writes it to the renv.lock file. This ensures that the project dependencies are tracked for future use or collaboration.</p></li>
-<li class="fragment"><p><code>renv::restore()</code>: Restores the project library from the renv.lock file. Use this when you’re setting up the project on a new system or when you need to ensure package versions match those recorded in the lockfile.</p></li>
-</ul>
+<section id="peek-at-the-renv.lock" class="slide level2">
+<h2>Peek at the <code>renv.lock</code></h2>
+<div class="codewindow" style="font-size: 0.6em;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>{</span>
+<span id="cb1-2"><a href=""></a>  <span class="st">"R"</span><span class="sc">:</span> {</span>
+<span id="cb1-3"><a href=""></a>    <span class="st">"Version"</span><span class="sc">:</span> <span class="st">"4.4.3"</span>,</span>
+<span id="cb1-4"><a href=""></a>    <span class="st">"Repositories"</span><span class="sc">:</span> [</span>
+<span id="cb1-5"><a href=""></a>      {</span>
+<span id="cb1-6"><a href=""></a>        <span class="st">"Name"</span><span class="sc">:</span> <span class="st">"CRAN"</span>,</span>
+<span id="cb1-7"><a href=""></a>        <span class="st">"URL"</span><span class="sc">:</span> <span class="st">"https://packagemanager.posit.co/cran"</span></span>
+<span id="cb1-8"><a href=""></a>      }</span>
+<span id="cb1-9"><a href=""></a>    ]</span>
+<span id="cb1-10"><a href=""></a>  },</span>
+<span id="cb1-11"><a href=""></a>  <span class="st">"Packages"</span><span class="sc">:</span> {</span>
+<span id="cb1-12"><a href=""></a>    <span class="st">"MASS"</span><span class="sc">:</span> {</span>
+<span id="cb1-13"><a href=""></a>      <span class="st">"Package"</span><span class="sc">:</span> <span class="st">"MASS"</span>,</span>
+<span id="cb1-14"><a href=""></a>      <span class="st">"Version"</span><span class="sc">:</span> <span class="st">"7.3-65"</span>,</span>
+<span id="cb1-15"><a href=""></a>      <span class="st">"Source"</span><span class="sc">:</span> <span class="st">"Repository"</span>,</span>
+<span id="cb1-16"><a href=""></a>      <span class="st">"Priority"</span><span class="sc">:</span> <span class="st">"recommended"</span>,</span>
+<span id="cb1-17"><a href=""></a>      <span class="st">"Date"</span><span class="sc">:</span> <span class="st">"2025-02-19"</span>,</span>
+<span id="cb1-18"><a href=""></a>      <span class="st">"Revision"</span><span class="sc">:</span> <span class="st">"$Rev: 3681 $"</span>,</span>
+<span id="cb1-19"><a href=""></a>      <span class="st">"Depends"</span><span class="sc">:</span> [</span>
+<span id="cb1-20"><a href=""></a>        <span class="st">"R (&gt;= 4.4.0)"</span>,</span>
+<span id="cb1-21"><a href=""></a>        <span class="st">"grDevices"</span>,</span>
+<span id="cb1-22"><a href=""></a>        <span class="st">"graphics"</span>,</span>
+<span id="cb1-23"><a href=""></a>        <span class="st">"stats"</span>,</span>
+<span id="cb1-24"><a href=""></a>        <span class="st">"utils"</span></span>
+<span id="cb1-25"><a href=""></a>      ],</span>
+<span id="cb1-26"><a href=""></a>      <span class="st">"Imports"</span><span class="sc">:</span> [</span>
+<span id="cb1-27"><a href=""></a>        <span class="st">"methods"</span></span>
+<span id="cb1-28"><a href=""></a>      ],</span>
+<span id="cb1-29"><a href=""></a>      <span class="st">"Suggests"</span><span class="sc">:</span> [</span>
+<span id="cb1-30"><a href=""></a>        <span class="st">"lattice"</span>,</span>
+<span id="cb1-31"><a href=""></a>        <span class="st">"nlme"</span>,</span>
+<span id="cb1-32"><a href=""></a>        <span class="st">"nnet"</span>,</span>
+<span id="cb1-33"><a href=""></a>        <span class="st">"survival"</span></span>
+<span id="cb1-34"><a href=""></a>      ],</span>
+<span id="cb1-35"><a href=""></a>      <span class="st">"Authors@R"</span><span class="sc">:</span> <span class="st">"c(person(</span><span class="sc">\"</span><span class="st">Brian</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">Ripley</span><span class="sc">\"</span><span class="st">, role = c(</span><span class="sc">\"</span><span class="st">aut</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">cre</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">cph</span><span class="sc">\"</span><span class="st">), email = </span><span class="sc">\"</span><span class="st">Brian.Ripley@R-project.org</span><span class="sc">\"</span><span class="st">), person(</span><span class="sc">\"</span><span class="st">Bill</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">Venables</span><span class="sc">\"</span><span class="st">, role = c(</span><span class="sc">\"</span><span class="st">aut</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">cph</span><span class="sc">\"</span><span class="st">)), person(c(</span><span class="sc">\"</span><span class="st">Douglas</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">M.</span><span class="sc">\"</span><span class="st">), </span><span class="sc">\"</span><span class="st">Bates</span><span class="sc">\"</span><span class="st">, role = </span><span class="sc">\"</span><span class="st">ctb</span><span class="sc">\"</span><span class="st">), person(</span><span class="sc">\"</span><span class="st">Kurt</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">Hornik</span><span class="sc">\"</span><span class="st">, role = </span><span class="sc">\"</span><span class="st">trl</span><span class="sc">\"</span><span class="st">, comment = </span><span class="sc">\"</span><span class="st">partial port ca 1998</span><span class="sc">\"</span><span class="st">), person(</span><span class="sc">\"</span><span class="st">Albrecht</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">Gebhardt</span><span class="sc">\"</span><span class="st">, role = </span><span class="sc">\"</span><span class="st">trl</span><span class="sc">\"</span><span class="st">, comment = </span><span class="sc">\"</span><span class="st">partial port ca 1998</span><span class="sc">\"</span><span class="st">), person(</span><span class="sc">\"</span><span class="st">David</span><span class="sc">\"</span><span class="st">, </span><span class="sc">\"</span><span class="st">Firth</span><span class="sc">\"</span><span class="st">, role = </span><span class="sc">\"</span><span class="st">ctb</span><span class="sc">\"</span><span class="st">, comment = </span><span class="sc">\"</span><span class="st">support functions for polr</span><span class="sc">\"</span><span class="st">))"</span>,</span>
+<span id="cb1-36"><a href=""></a>      <span class="st">"Description"</span><span class="sc">:</span> <span class="st">"Functions and datasets to support Venables and Ripley, </span><span class="sc">\"</span><span class="st">Modern Applied Statistics with S</span><span class="sc">\"</span><span class="st"> (4th edition, 2002)."</span>,</span>
+<span id="cb1-37"><a href=""></a>      <span class="st">"Title"</span><span class="sc">:</span> <span class="st">"Support Functions and Datasets for Venables and Ripley's MASS"</span>,</span>
+<span id="cb1-38"><a href=""></a>      <span class="st">"LazyData"</span><span class="sc">:</span> <span class="st">"yes"</span>,</span>
+<span id="cb1-39"><a href=""></a>      <span class="st">"ByteCompile"</span><span class="sc">:</span> <span class="st">"yes"</span>,</span>
+<span id="cb1-40"><a href=""></a>      <span class="st">"License"</span><span class="sc">:</span> <span class="st">"GPL-2 | GPL-3"</span>,</span>
+<span id="cb1-41"><a href=""></a>      <span class="st">"URL"</span><span class="sc">:</span> <span class="st">"http://www.stats.ox.ac.uk/pub/MASS4/"</span>,</span>
+<span id="cb1-42"><a href=""></a>      <span class="st">"Contact"</span><span class="sc">:</span> <span class="st">"&lt;MASS@stats.ox.ac.uk&gt;"</span>,</span>
+<span id="cb1-43"><a href=""></a>      <span class="st">"NeedsCompilation"</span><span class="sc">:</span> <span class="st">"yes"</span>,</span>
+<span id="cb1-44"><a href=""></a>      <span class="st">"Author"</span><span class="sc">:</span> <span class="st">"Brian Ripley [aut, cre, cph], Bill Venables [aut, cph], Douglas M. Bates [ctb], Kurt Hornik [trl] (partial port ca 1998), Albrecht Gebhardt [trl] (partial port ca 1998), David Firth [ctb] (support functions for polr)"</span>,</span>
+<span id="cb1-45"><a href=""></a>      <span class="st">"Maintainer"</span><span class="sc">:</span> <span class="st">"Brian Ripley &lt;Brian.Ripley@R-project.org&gt;"</span>,</span>
+<span id="cb1-46"><a href=""></a>      <span class="st">"Repository"</span><span class="sc">:</span> <span class="st">"CRAN"</span></span>
+<span id="cb1-47"><a href=""></a>    }</span>
+<span id="cb1-48"><a href=""></a>...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="footer">
+<p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/renv.lock">Pilot 5 renv.lock</a></p>
+</div>
 </section>
-<section id="all-the-renv-you-need-to-know-just-8-1" class="slide level2 smaller">
-<h2>All the renv you need to know (just 8!)</h2>
+<section id="key-renv-commands" class="slide level2 smaller">
+<h2>4 key renv commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="codewindow" style="font-size: 0.6em;">
+<p>renv.R</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>renv<span class="sc">::</span><span class="fu">init</span>()</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>renv<span class="sc">::</span><span class="fu">status</span>()</span>
+<span id="cb2-4"><a href=""></a></span>
+<span id="cb2-5"><a href=""></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span>
+<span id="cb2-6"><a href=""></a></span>
+<span id="cb2-7"><a href=""></a>renv<span class="sc">::</span><span class="fu">remove</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
 <ul>
-<li class="fragment"><p><code>renv::update()</code>: Updates the packages in your project and optionally updates the renv.lock file with the new versions.</p></li>
-<li class="fragment"><p><code>renv::status()</code>: Checks for any discrepancies between the state of the project’s library and the renv.lock file. This helps identify packages that might be out-of-sync.</p></li>
-<li class="fragment"><p><code>renv::remove()</code>: Removes one or more packages from your project’s library, making it easy to manage unused dependencies.</p></li>
-<li class="fragment"><p><code>renv::clean()</code>: Cleans up the project’s library by removing unused packages that aren’t required based on the renv.lock file.</p></li>
+<li><p>Initializes a new renv project by creating a project-specific library and a lockfile.</p></li>
+<li><p>Checks for any discrepancies between the state of the project’s library and the <code>renv.lock</code> file.</p></li>
+<li><p>Captures the state of your current project environment and writes it to the <code>renv.lock</code> file.</p></li>
+<li><p>Removes one or more packages from your project’s library, making it easy to manage unused dependencies.</p></li>
 </ul>
+</div></div>
 </section>
 <section id="renv-tips-and-tricks" class="slide level2">
 <h2>renv tips and tricks</h2>
@@ -362,17 +426,17 @@ Eli Miller, Ben Straub, Eric Nantz
 <p>💬 A <strong>structured</strong> chat</p>
 <div class="codewindow" style="font-size: 0.6em;">
 <p>tlf-qc.qmd</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>type_qc_diff <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
-<span id="cb1-2"><a href=""></a>  <span class="at">difference_list =</span> <span class="fu">type_string</span>(),</span>
-<span id="cb1-3"><a href=""></a>  <span class="at">same_conclusion =</span> <span class="fu">type_boolean</span>(),</span>
-<span id="cb1-4"><a href=""></a>  <span class="at">difference_score =</span> <span class="fu">type_integer</span>()</span>
-<span id="cb1-5"><a href=""></a>)</span>
-<span id="cb1-6"><a href=""></a>res <span class="ot">&lt;-</span> chat<span class="sc">$</span><span class="fu">chat_structured</span>(</span>
-<span id="cb1-7"><a href=""></a>  prompt,</span>
-<span id="cb1-8"><a href=""></a>  new_image,</span>
-<span id="cb1-9"><a href=""></a>  comp_image,</span>
-<span id="cb1-10"><a href=""></a>  <span class="at">type =</span> type_qc_diffs</span>
-<span id="cb1-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>type_qc_diff <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
+<span id="cb3-2"><a href=""></a>  <span class="at">difference_list =</span> <span class="fu">type_string</span>(),</span>
+<span id="cb3-3"><a href=""></a>  <span class="at">same_conclusion =</span> <span class="fu">type_boolean</span>(),</span>
+<span id="cb3-4"><a href=""></a>  <span class="at">difference_score =</span> <span class="fu">type_integer</span>()</span>
+<span id="cb3-5"><a href=""></a>)</span>
+<span id="cb3-6"><a href=""></a>res <span class="ot">&lt;-</span> chat<span class="sc">$</span><span class="fu">chat_structured</span>(</span>
+<span id="cb3-7"><a href=""></a>  prompt,</span>
+<span id="cb3-8"><a href=""></a>  new_image,</span>
+<span id="cb3-9"><a href=""></a>  comp_image,</span>
+<span id="cb3-10"><a href=""></a>  <span class="at">type =</span> type_qc_diffs</span>
+<span id="cb3-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>🤖 and a <strong>structured</strong> result</p>
@@ -463,26 +527,26 @@ Eli Miller, Ben Straub, Eric Nantz
 <h2>Bash Scripting</h2>
 <div class="codewindow" style="font-size: 0.42em;">
 <p>create-ectd-bundle.sh</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href=""></a><span class="co"># Define file and directory paths</span></span>
-<span id="cb2-2"><a href=""></a><span class="va">ECTD_BUNDLE_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
-<span id="cb2-3"><a href=""></a><span class="va">ECTD_LETTER_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m1/us</span>
-<span id="cb2-4"><a href=""></a><span class="va">ECTD_ROOT_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m5/datasets/rconsortiumpilot4container/analysis/adam</span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a><span class="co"># additional paths ...</span></span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a><span class="co"># Create directory structure for ectd bundle</span></span>
-<span id="cb2-9"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_LETTER_DIR}</span><span class="st">"</span></span>
-<span id="cb2-10"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_PROGRAMS_DIR}</span><span class="st">"</span></span>
-<span id="cb2-11"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_ADAM_DATASETS_DIR}</span><span class="st">"</span></span>
-<span id="cb2-12"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_SDTM_DATASETS_DIR}</span><span class="st">"</span></span>
-<span id="cb2-13"><a href=""></a></span>
-<span id="cb2-14"><a href=""></a><span class="co"># example: copy helper fcns script</span></span>
-<span id="cb2-15"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb2-16"><a href=""></a><span class="fu">cp</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="st">"</span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/."</span></span>
-<span id="cb2-17"><a href=""></a><span class="bu">echo</span> <span class="st">"pilot 5 helper script copied to </span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span></span>
-<span id="cb2-18"><a href=""></a><span class="cf">fi</span></span>
-<span id="cb2-19"><a href=""></a></span>
-<span id="cb2-20"><a href=""></a><span class="co"># additional operations ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="co"># Define file and directory paths</span></span>
+<span id="cb4-2"><a href=""></a><span class="va">ECTD_BUNDLE_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
+<span id="cb4-3"><a href=""></a><span class="va">ECTD_LETTER_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m1/us</span>
+<span id="cb4-4"><a href=""></a><span class="va">ECTD_ROOT_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m5/datasets/rconsortiumpilot4container/analysis/adam</span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a><span class="co"># additional paths ...</span></span>
+<span id="cb4-7"><a href=""></a></span>
+<span id="cb4-8"><a href=""></a><span class="co"># Create directory structure for ectd bundle</span></span>
+<span id="cb4-9"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_LETTER_DIR}</span><span class="st">"</span></span>
+<span id="cb4-10"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_PROGRAMS_DIR}</span><span class="st">"</span></span>
+<span id="cb4-11"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_ADAM_DATASETS_DIR}</span><span class="st">"</span></span>
+<span id="cb4-12"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_SDTM_DATASETS_DIR}</span><span class="st">"</span></span>
+<span id="cb4-13"><a href=""></a></span>
+<span id="cb4-14"><a href=""></a><span class="co"># example: copy helper fcns script</span></span>
+<span id="cb4-15"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb4-16"><a href=""></a><span class="fu">cp</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="st">"</span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/."</span></span>
+<span id="cb4-17"><a href=""></a><span class="bu">echo</span> <span class="st">"pilot 5 helper script copied to </span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span></span>
+<span id="cb4-18"><a href=""></a><span class="cf">fi</span></span>
+<span id="cb4-19"><a href=""></a></span>
+<span id="cb4-20"><a href=""></a><span class="co"># additional operations ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/create-ectd-bundle.sh">Pilot 5 Create eCTD Bundle Script</a></p>
@@ -492,21 +556,21 @@ Eli Miller, Ben Straub, Eric Nantz
 <h2>Bash Scripting (continued)</h2>
 <div class="codewindow" style="font-size: 0.42em;">
 <p>push-ectd-bundle.sh</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="co"># Set up file paths</span></span>
-<span id="cb3-2"><a href=""></a><span class="va">ECTD_REPO_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
-<span id="cb3-3"><a href=""></a></span>
-<span id="cb3-4"><a href=""></a><span class="co"># Navigate to clone of ECTD repo</span></span>
-<span id="cb3-5"><a href=""></a><span class="bu">cd</span> <span class="st">"./</span><span class="va">${ECTD_REPO_DIR}</span><span class="st">"</span></span>
-<span id="cb3-6"><a href=""></a><span class="bu">echo</span> <span class="st">"Open root of ECTD GitHub Repo"</span></span>
-<span id="cb3-7"><a href=""></a></span>
-<span id="cb3-8"><a href=""></a><span class="co"># Commit updated bundle to repository</span></span>
-<span id="cb3-9"><a href=""></a><span class="fu">git</span> add <span class="at">-A</span> .</span>
-<span id="cb3-10"><a href=""></a><span class="fu">git</span> config user.name github-actions</span>
-<span id="cb3-11"><a href=""></a><span class="fu">git</span> config user.email github-actions@github.com</span>
-<span id="cb3-12"><a href=""></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"GH Action: Update Pilot 5 ECTD bundle"</span></span>
-<span id="cb3-13"><a href=""></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin main</span>
-<span id="cb3-14"><a href=""></a></span>
-<span id="cb3-15"><a href=""></a><span class="bu">echo</span> <span class="st">"Updated ECTD bundle successfully to repository"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="co"># Set up file paths</span></span>
+<span id="cb5-2"><a href=""></a><span class="va">ECTD_REPO_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
+<span id="cb5-3"><a href=""></a></span>
+<span id="cb5-4"><a href=""></a><span class="co"># Navigate to clone of ECTD repo</span></span>
+<span id="cb5-5"><a href=""></a><span class="bu">cd</span> <span class="st">"./</span><span class="va">${ECTD_REPO_DIR}</span><span class="st">"</span></span>
+<span id="cb5-6"><a href=""></a><span class="bu">echo</span> <span class="st">"Open root of ECTD GitHub Repo"</span></span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a><span class="co"># Commit updated bundle to repository</span></span>
+<span id="cb5-9"><a href=""></a><span class="fu">git</span> add <span class="at">-A</span> .</span>
+<span id="cb5-10"><a href=""></a><span class="fu">git</span> config user.name github-actions</span>
+<span id="cb5-11"><a href=""></a><span class="fu">git</span> config user.email github-actions@github.com</span>
+<span id="cb5-12"><a href=""></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"GH Action: Update Pilot 5 ECTD bundle"</span></span>
+<span id="cb5-13"><a href=""></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin main</span>
+<span id="cb5-14"><a href=""></a></span>
+<span id="cb5-15"><a href=""></a><span class="bu">echo</span> <span class="st">"Updated ECTD bundle successfully to repository"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/push-ectd-bundle.sh">Pilot 5 Push eCTD Bundle Script</a></p>
@@ -517,17 +581,17 @@ Eli Miller, Ben Straub, Eric Nantz
 <p>Run <strong>automatically</strong> on each push to main branch event</p>
 <div class="codewindow" style="font-size: 0.6em;">
 <p>publish-ectd-bundle.yaml</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create ECTD bundle</span></span>
-<span id="cb4-2"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/create-ectd-bundle.sh</span></span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Archive ECTD bundle</span></span>
-<span id="cb4-5"><a href=""></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
-<span id="cb4-6"><a href=""></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb4-7"><a href=""></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ectd-bundle-archive</span></span>
-<span id="cb4-8"><a href=""></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> submissions-pilot5-datasetjson-to-fda</span></span>
-<span id="cb4-9"><a href=""></a></span>
-<span id="cb4-10"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push ECTD bundle repository</span></span>
-<span id="cb4-11"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/push-ectd-bundle.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create ECTD bundle</span></span>
+<span id="cb6-2"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/create-ectd-bundle.sh</span></span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Archive ECTD bundle</span></span>
+<span id="cb6-5"><a href=""></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb6-6"><a href=""></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href=""></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ectd-bundle-archive</span></span>
+<span id="cb6-8"><a href=""></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> submissions-pilot5-datasetjson-to-fda</span></span>
+<span id="cb6-9"><a href=""></a></span>
+<span id="cb6-10"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push ECTD bundle repository</span></span>
+<span id="cb6-11"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/push-ectd-bundle.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/workflows/publish-ectd-bundle.yaml">Pilot 5 Publish eCTD Bundle Repository Action</a></p>
