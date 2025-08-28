@@ -12,9 +12,7 @@ revealjs-plugins:
   - codewindow
 ---
 
-## Intro
-
-Objectives:
+## Objectives
 
 * Learn about Tools that have been used on the R Consortium FDA Pilots to collaborate and to ensure accuracy and reproducibility.
   * renv, git/GitHub, LLMs, CI/CD
@@ -197,42 +195,6 @@ renv::remove()
 * Don't edit the `renv.lock` file manually - use the nice functions!
 * Don't be scarred to update to latest packages either - but use the nice functions!
 
-## LLM & ADRG with Ellmer
-
-::::{.columns}
-
-:::{.column width="45%"}
-
-Manually generated ADRG from pilot 3
-
-![](images/humanADRG.png)
-
-:::
-
-:::{.column width="50%"}
-
-🤖LLM generated ADRG in pilot 5
-
-![](images/LLMADRG.png)
-
-:::
-
-::::
-
-::: aside
-* Courtesy of [Ning Leng](mailto:leng.ning@gene.com) ✨
-:::
-
-:::{.notes}
-
-One of the ways we utilized LLM in pilot 5. 
-
-Please review the following R code and identify the variables used, along with the corresponding datasets they belong to. …”
-
-"Please review the following R code and identify the filtering criteria applied…”
-
-
-:::
 
 ## LLM & ADRG with btw
 
@@ -275,6 +237,44 @@ environment and objects so an LLM can understand them. R objects, packages, func
 documentation can be fed in to describe what your code in R is actually doing. On the right you see...
 
 :::
+
+
+## LLM & ADRG with Ellmer
+
+::::{.columns}
+
+:::{.column width="45%"}
+
+Manually generated ADRG from pilot 3
+
+![](images/humanADRG.png)
+
+:::
+
+:::{.column width="50%"}
+
+🤖LLM generated ADRG in pilot 5
+
+![](images/LLMADRG.png)
+
+:::
+
+::::
+
+::: aside
+* Courtesy of [Ning Leng](mailto:leng.ning@gene.com) ✨
+:::
+
+:::{.notes}
+
+One of the ways we utilized LLM in pilot 5. 
+
+Please review the following R code and identify the variables used, along with the corresponding datasets they belong to. …”
+
+"Please review the following R code and identify the filtering criteria applied…”
+
+:::
+
 
 # Git/GitHub
 
@@ -423,3 +423,24 @@ Finally, once code is pushed into a staging or main branch, the code should be r
 :::
 
 {{< include _automation.qmd >}}
+
+
+## The Wrap Up
+
+* All volunteer group from across Pharma and CROs coming together to do R-based Submissions
+to the FDA.
+* We are always experimenting and looking for ways to implement new ways of working and
+latest technology and processes.
+* Get involved!  More info [here](https://rconsortium.github.io/submissions-wg/join.html).
+
+
+
+
+
+
+
+
+
+
+
+
