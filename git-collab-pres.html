@@ -381,10 +381,26 @@ Eli Miller, Ben Straub, Eric Nantz
 <p>Manually generated ADRG from pilot 3</p>
 <p><img data-src="images/humanADRG.png"></p>
 </div><div class="column" style="width:50%;">
-<p>LLM generated ADRG in pilot 5</p>
+<p>🤖LLM generated ADRG in pilot 5</p>
 <p><img data-src="images/LLMADRG.png"></p>
+<p><img data-src="images/ellmerPackage.png" height="200"></p>
 </div></div>
 
+<aside class="notes">
+<p>One of the ways we utilized LLM in pilot 5.</p>
+<p>Please review the following R code and identify the variables used, along with the corresponding datasets they belong to. …”</p>
+<p>“Please review the following R code and identify the filtering criteria applied…”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <ul>
 <li>Courtesy of <a href="mailto:leng.ning@gene.com">Ning Leng</a> ✨</li>
@@ -406,6 +422,19 @@ Eli Miller, Ben Straub, Eric Nantz
 <p><img data-src="images/packageDescs.png"></p>
 </div></div>
 
+<aside class="notes">
+<p>Here Ning used the <code>btw</code> package which wraps around the ellmer package and can inject your R environment and objects so an LLM can understand them. R objects, packages, functions, and documentation can be fed in to describe what your code in R is actually doing. On the right you see…</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <ul>
 <li>Thanks Ning!</li>
@@ -432,8 +461,12 @@ Eli Miller, Ben Straub, Eric Nantz
 
 <aside class="notes">
 <p>In the past years I’ve seen a lot of different ways of using Git. Found a few main benifits from a well crafted gitflow.</p>
-<p>Max Dev work.</p>
-<p>Build from the ground up. Don’t implement because you see it on this slide, or saw someone else do it</p>
+<p>Max Dev work. Biggest tripping point I see. Make sure all parts of the gitflow are needed and not just in place because you see others do it. Devleopers should not need to shepard their code through the gitflow process, they should only need to focus on developing and testing.</p>
+<p>Max Code quality. test driven development can help. Make sure tests are run, all value-add quality checks are there. and codeowners are doing meaningful reviews</p>
+<p>Max Code Velocity. Make sure all steps are needed and everyone knows who is reviewing, reviewing for what, and why they’re reviewing. Tests are running quickly, code is deployed quickly. And releases and tags are made available</p>
+<p>Build from the ground up with a focus on quality, development, and users. Don’t implement because you see it on this slide, or saw someone else do it</p>
+<p>On the left I have an example of an easy gitflow. Even this one could be overengineered.</p>
+<p>To start your development efforts are in their own seperate feature branches, which are then merged into a staging environment. I see a lot of QA work being done in staging environments before it gets pushed into production. Once approaved in stage, it can have a final round of checks done, pushed to the main branch, deployed to production, and tagged.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -455,7 +488,7 @@ Eli Miller, Ben Straub, Eric Nantz
 <p>Code moving between branches or a transision of “state.” A structured way for reviewing code</p>
 
 <img data-src="images/PRScreenshot.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
-<p>Eli’s notes</p>
+<p>Here is an example of a pull request in pilot 5 and you can see a few different things in the pull request process. You can see Ben commenting the team and individual contriutors, Checks successfully passing, and some automation in the GitHub project to help us prioritize work</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -484,7 +517,7 @@ Eli Miller, Ben Straub, Eric Nantz
 </ul>
 </div></div>
 <aside class="notes">
-<p>Eli’s notes</p>
+<p>Diving in deeper, here are some examples of some workflows that we run. A lot of these are taken from r-lib, pharmaverse, and other contrubutors. We check for code style, code linting(which is different somehow), a spell check, testing, test coverage, and an R CMD check. Before any code gets into the main branch it has to pass these tests. When doing development you get very clear and actionalbe feedback on what to do.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -521,7 +554,8 @@ Eli Miller, Ben Straub, Eric Nantz
 <p><img data-src="images/BotComment.png"></p>
 </div></div>
 <aside class="notes">
-<p>Eli’s notes</p>
+<p>Above we had some of the QC checks for pilot 5. One of the issues we had with some of the pilots were … And we thought to lean on some LLM to do the QC checking. Like Ning’s example above, this uses the ellmer package to give us a stucutred result that could give us a list of differneces to comment to the users, a boolean result on whether or not the TLFs are the same, and a score noting how different they are.</p>
+<p>This is sent to an LLM which evaluates the two images, describes the differences, determines if these differences are material, then a comment is added to note all of these.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -539,7 +573,7 @@ Eli Miller, Ben Straub, Eric Nantz
 <p>Code being deployed out to the world</p>
 
 <img data-src="images/deployment.png" class="r-stretch"><aside class="notes">
-<p>Eli’s notes</p>
+<p>Finally, once code is pushed into a staging or main branch, the code should be ready to go. Part of a good workflow should be to automatically push your approved code to a deployment environment. Doing this manually can be error prone and can work. In this example you can see some documentation of this presentation being deployed! You can see the most active version, who deployed it, and when.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
