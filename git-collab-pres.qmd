@@ -123,7 +123,67 @@ Big Ideas:
 * Don't edit the `renv.lock` file manually - use the nice functions!
 * Don't be scarred to update to latest packages either - but use the nice functions!
 
-# git/GitHub
+## LLM & ADRG with Ellmer
+
+::::{.columns}
+
+:::{.column width="45%"}
+
+Manually generated ADRG from pilot 3
+
+![](images/humanADRG.png)
+
+:::
+
+:::{.column width="50%"}
+
+LLM generated ADRG in pilot 5
+
+![](images/LLMADRG.png)
+
+:::
+
+::::
+
+::: aside
+* Courtesy of [Ning Leng](mailto:leng.ning@gene.com) ✨
+:::
+
+## LLM & ADRG with btw
+
+:::::{.columns}
+
+::::{.column width="45%"}
+
+
+![](images/btwPackage.png){height="200px"}
+
+::: {.codewindow style="font-size: 0.4em;"}
+```r 
+btw(
+  pkg,
+  "write an one sentence description 
+  on this package's functionality."
+)
+```
+:::
+
+::::
+
+
+::::{.column width="50%"}
+
+![](images/packageDescs.png)
+
+::::
+
+:::::
+
+::: aside
+* Thanks Ning!
+:::
+
+# Git/GitHub
 
 ## Gitflow
 
@@ -153,50 +213,72 @@ _Our goals_:
 * Nonauthoritative, only take the parts you need!
 :::
 
+:::{.notes}
+
+In the past years I've seen a lot of different ways of using Git. Found a few main benifits from a well crafted gitflow. 
+
+Max Dev work. 
+
+Build from the ground up. Don't implement because you see it on this slide, or saw someone else do it
+
+::: 
+
 ## Pull Requests and Collaboration
 
 Code moving between branches or a transision of "state." A structured way for reviewing code
 
 ![](images/PRScreenshot.png){fig-align="center"}
 
+:::{.notes}
+
+Eli's notes
+
+:::
+
 ## Code Quality *Automated*
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column witdth="50%"}
 
--   Code Style
--   Linting
--   Spelling
--   Testing
--   Code Coverage
--   Build Check
+![](images/WorkflowScreenshot.png){height=500px}
 
 :::
 
-::: {.column witdth="50%"}
+::: {.column width="50%"}
 
-![](images/WorkflowScreenshot.png)
+-   🕺Code Style
+-   🧹Linting
+-   <span style="text-decoration: underline wavy red;">Spelling</span>
+-   📝Testing
+-   📊Code Coverage
+-   ✅Build Check
 
 :::
 
 ::::
 
+:::{.notes}
+
+Eli's notes
+
+:::
+
 ## Code Quality *and* AI
 
 ::::: {.columns}
 
-:::: {.column width="50%"}
+:::: {.column width="40%"}
 
 💬 A **structured** chat
 
-::: {.codewindow style="font-size: 0.6em;"}
+::: {.codewindow style="font-size: 0.4em;"}
 tlf-qc.qmd
 ```r 
-type_qc_diff <- type_object(
-  difference_list = type_string(),
-  same_conclusion = type_boolean(),
-  difference_score = type_integer()
+type <- type_object(
+  diff_list = type_string(),
+  conclusion = type_boolean(),
+  diff_score = type_integer()
 )
 res <- chat$chat_structured(
   prompt,
@@ -210,7 +292,7 @@ res <- chat$chat_structured(
 
 ::::
 
-:::: {.column width="50%"}
+:::: {.column width="60%"}
 🤖 and a **structured** result
 
 ![](images/BotComment.png)
@@ -219,10 +301,22 @@ res <- chat$chat_structured(
 
 :::::
 
+:::{.notes}
+
+Eli's notes
+
+:::
+
 ## 🚀Deployments
 
 Code being deployed out to the world
 
 ![](images/deployment.png)
+
+:::{.notes}
+
+Eli's notes
+
+:::
 
 {{< include _automation.qmd >}}
