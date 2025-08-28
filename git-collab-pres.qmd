@@ -215,8 +215,6 @@ Manually generated ADRG from pilot 3
 
 ![](images/LLMADRG.png)
 
-![](images/ellmerPackage.png){height="200px"}
-
 :::
 
 ::::
