@@ -373,10 +373,47 @@ Eli Miller, Ben Straub, Eric Nantz
 <li><p>Don’t edit the <code>renv.lock</code> file manually - use the nice functions!</p></li>
 <li><p>Don’t be scarred to update to latest packages either - but use the nice functions!</p></li>
 </ul>
-</section></section>
+</section>
+<section id="llm-adrg-with-ellmer" class="slide level2">
+<h2>LLM &amp; ADRG with Ellmer</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Manually generated ADRG from pilot 3</p>
+<p><img data-src="images/humanADRG.png"></p>
+</div><div class="column" style="width:50%;">
+<p>LLM generated ADRG in pilot 5</p>
+<p><img data-src="images/LLMADRG.png"></p>
+</div></div>
+
+<aside><div>
+<ul>
+<li>Courtesy of <a href="mailto:leng.ning@gene.com">Ning Leng</a> ✨</li>
+</ul>
+</div></aside></section>
+<section id="llm-adrg-with-btw" class="slide level2">
+<h2>LLM &amp; ADRG with btw</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/btwPackage.png" height="200"></p>
+<div class="codewindow" style="font-size: 0.4em;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">btw</span>(</span>
+<span id="cb3-2"><a href=""></a>  pkg,</span>
+<span id="cb3-3"><a href=""></a>  <span class="st">"write an one sentence description </span></span>
+<span id="cb3-4"><a href=""></a><span class="st">  on this package's functionality."</span></span>
+<span id="cb3-5"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/packageDescs.png"></p>
+</div></div>
+
+<aside><div>
+<ul>
+<li>Thanks Ning!</li>
+</ul>
+</div></aside></section></section>
 <section>
 <section id="gitgithub" class="title-slide slide level1 center">
-<h1>git/GitHub</h1>
+<h1>Git/GitHub</h1>
 
 </section>
 <section id="gitflow" class="slide level2">
@@ -393,6 +430,21 @@ Eli Miller, Ben Straub, Eric Nantz
 <p><img data-src="images/nomnoml.png"></p>
 </div></div>
 
+<aside class="notes">
+<p>In the past years I’ve seen a lot of different ways of using Git. Found a few main benifits from a well crafted gitflow.</p>
+<p>Max Dev work.</p>
+<p>Build from the ground up. Don’t implement because you see it on this slide, or saw someone else do it</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <aside><div>
 <ul>
 <li>Nonauthoritative, only take the parts you need!</li>
@@ -402,52 +454,104 @@ Eli Miller, Ben Straub, Eric Nantz
 <h2>Pull Requests and Collaboration</h2>
 <p>Code moving between branches or a transision of “state.” A structured way for reviewing code</p>
 
-<img data-src="images/PRScreenshot.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="images/PRScreenshot.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>Eli’s notes</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="code-quality-automated" class="slide level2">
 <h2>Code Quality <em>Automated</em></h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" data-witdth="50%">
+<p><img data-src="images/WorkflowScreenshot.png" height="500"></p>
+</div><div class="column" style="width:50%;">
 <ul>
-<li>Code Style</li>
-<li>Linting</li>
-<li>Spelling</li>
-<li>Testing</li>
-<li>Code Coverage</li>
-<li>Build Check</li>
+<li>🕺Code Style</li>
+<li>🧹Linting</li>
+<li><span style="text-decoration: underline wavy red;">Spelling</span></li>
+<li>📝Testing</li>
+<li>📊Code Coverage</li>
+<li>✅Build Check</li>
 </ul>
-</div><div class="column" data-witdth="50%">
-<p><img data-src="images/WorkflowScreenshot.png"></p>
 </div></div>
+<aside class="notes">
+<p>Eli’s notes</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="code-quality-and-ai" class="slide level2">
 <h2>Code Quality <em>and</em> AI</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <p>💬 A <strong>structured</strong> chat</p>
-<div class="codewindow" style="font-size: 0.6em;">
+<div class="codewindow" style="font-size: 0.4em;">
 <p>tlf-qc.qmd</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>type_qc_diff <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
-<span id="cb3-2"><a href=""></a>  <span class="at">difference_list =</span> <span class="fu">type_string</span>(),</span>
-<span id="cb3-3"><a href=""></a>  <span class="at">same_conclusion =</span> <span class="fu">type_boolean</span>(),</span>
-<span id="cb3-4"><a href=""></a>  <span class="at">difference_score =</span> <span class="fu">type_integer</span>()</span>
-<span id="cb3-5"><a href=""></a>)</span>
-<span id="cb3-6"><a href=""></a>res <span class="ot">&lt;-</span> chat<span class="sc">$</span><span class="fu">chat_structured</span>(</span>
-<span id="cb3-7"><a href=""></a>  prompt,</span>
-<span id="cb3-8"><a href=""></a>  new_image,</span>
-<span id="cb3-9"><a href=""></a>  comp_image,</span>
-<span id="cb3-10"><a href=""></a>  <span class="at">type =</span> type_qc_diffs</span>
-<span id="cb3-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>type <span class="ot">&lt;-</span> <span class="fu">type_object</span>(</span>
+<span id="cb4-2"><a href=""></a>  <span class="at">diff_list =</span> <span class="fu">type_string</span>(),</span>
+<span id="cb4-3"><a href=""></a>  <span class="at">conclusion =</span> <span class="fu">type_boolean</span>(),</span>
+<span id="cb4-4"><a href=""></a>  <span class="at">diff_score =</span> <span class="fu">type_integer</span>()</span>
+<span id="cb4-5"><a href=""></a>)</span>
+<span id="cb4-6"><a href=""></a>res <span class="ot">&lt;-</span> chat<span class="sc">$</span><span class="fu">chat_structured</span>(</span>
+<span id="cb4-7"><a href=""></a>  prompt,</span>
+<span id="cb4-8"><a href=""></a>  new_image,</span>
+<span id="cb4-9"><a href=""></a>  comp_image,</span>
+<span id="cb4-10"><a href=""></a>  <span class="at">type =</span> type_qc_diffs</span>
+<span id="cb4-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:60%;">
 <p>🤖 and a <strong>structured</strong> result</p>
 <p><img data-src="images/BotComment.png"></p>
 </div></div>
+<aside class="notes">
+<p>Eli’s notes</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="deployments" class="slide level2">
 <h2>🚀Deployments</h2>
 <p>Code being deployed out to the world</p>
 
-<img data-src="images/deployment.png" class="r-stretch"></section>
+<img data-src="images/deployment.png" class="r-stretch"><aside class="notes">
+<p>Eli’s notes</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="manual-work" class="slide level2">
 <h2>Manual Work</h2>
 <div class="columns">
@@ -527,26 +631,26 @@ Eli Miller, Ben Straub, Eric Nantz
 <h2>Bash Scripting</h2>
 <div class="codewindow" style="font-size: 0.42em;">
 <p>create-ectd-bundle.sh</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href=""></a><span class="co"># Define file and directory paths</span></span>
-<span id="cb4-2"><a href=""></a><span class="va">ECTD_BUNDLE_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
-<span id="cb4-3"><a href=""></a><span class="va">ECTD_LETTER_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m1/us</span>
-<span id="cb4-4"><a href=""></a><span class="va">ECTD_ROOT_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m5/datasets/rconsortiumpilot4container/analysis/adam</span>
-<span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a><span class="co"># additional paths ...</span></span>
-<span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a><span class="co"># Create directory structure for ectd bundle</span></span>
-<span id="cb4-9"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_LETTER_DIR}</span><span class="st">"</span></span>
-<span id="cb4-10"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_PROGRAMS_DIR}</span><span class="st">"</span></span>
-<span id="cb4-11"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_ADAM_DATASETS_DIR}</span><span class="st">"</span></span>
-<span id="cb4-12"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_SDTM_DATASETS_DIR}</span><span class="st">"</span></span>
-<span id="cb4-13"><a href=""></a></span>
-<span id="cb4-14"><a href=""></a><span class="co"># example: copy helper fcns script</span></span>
-<span id="cb4-15"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb4-16"><a href=""></a><span class="fu">cp</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="st">"</span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/."</span></span>
-<span id="cb4-17"><a href=""></a><span class="bu">echo</span> <span class="st">"pilot 5 helper script copied to </span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span></span>
-<span id="cb4-18"><a href=""></a><span class="cf">fi</span></span>
-<span id="cb4-19"><a href=""></a></span>
-<span id="cb4-20"><a href=""></a><span class="co"># additional operations ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="co"># Define file and directory paths</span></span>
+<span id="cb5-2"><a href=""></a><span class="va">ECTD_BUNDLE_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
+<span id="cb5-3"><a href=""></a><span class="va">ECTD_LETTER_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m1/us</span>
+<span id="cb5-4"><a href=""></a><span class="va">ECTD_ROOT_DIR</span><span class="op">=</span><span class="va">${ECTD_BUNDLE_DIR}</span>/m5/datasets/rconsortiumpilot4container/analysis/adam</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a><span class="co"># additional paths ...</span></span>
+<span id="cb5-7"><a href=""></a></span>
+<span id="cb5-8"><a href=""></a><span class="co"># Create directory structure for ectd bundle</span></span>
+<span id="cb5-9"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_LETTER_DIR}</span><span class="st">"</span></span>
+<span id="cb5-10"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_PROGRAMS_DIR}</span><span class="st">"</span></span>
+<span id="cb5-11"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_ADAM_DATASETS_DIR}</span><span class="st">"</span></span>
+<span id="cb5-12"><a href=""></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">${ECTD_SDTM_DATASETS_DIR}</span><span class="st">"</span></span>
+<span id="cb5-13"><a href=""></a></span>
+<span id="cb5-14"><a href=""></a><span class="co"># example: copy helper fcns script</span></span>
+<span id="cb5-15"><a href=""></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">-f</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb5-16"><a href=""></a><span class="fu">cp</span> <span class="st">"</span><span class="va">${PROGRAMS_SOURCE_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span> <span class="st">"</span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/."</span></span>
+<span id="cb5-17"><a href=""></a><span class="bu">echo</span> <span class="st">"pilot 5 helper script copied to </span><span class="va">${PROGRAMS_DESTINATION_DIR}</span><span class="st">/pilot5-helper-fcns.r"</span></span>
+<span id="cb5-18"><a href=""></a><span class="cf">fi</span></span>
+<span id="cb5-19"><a href=""></a></span>
+<span id="cb5-20"><a href=""></a><span class="co"># additional operations ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/create-ectd-bundle.sh">Pilot 5 Create eCTD Bundle Script</a></p>
@@ -556,21 +660,21 @@ Eli Miller, Ben Straub, Eric Nantz
 <h2>Bash Scripting (continued)</h2>
 <div class="codewindow" style="font-size: 0.42em;">
 <p>push-ectd-bundle.sh</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href=""></a><span class="co"># Set up file paths</span></span>
-<span id="cb5-2"><a href=""></a><span class="va">ECTD_REPO_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
-<span id="cb5-3"><a href=""></a></span>
-<span id="cb5-4"><a href=""></a><span class="co"># Navigate to clone of ECTD repo</span></span>
-<span id="cb5-5"><a href=""></a><span class="bu">cd</span> <span class="st">"./</span><span class="va">${ECTD_REPO_DIR}</span><span class="st">"</span></span>
-<span id="cb5-6"><a href=""></a><span class="bu">echo</span> <span class="st">"Open root of ECTD GitHub Repo"</span></span>
-<span id="cb5-7"><a href=""></a></span>
-<span id="cb5-8"><a href=""></a><span class="co"># Commit updated bundle to repository</span></span>
-<span id="cb5-9"><a href=""></a><span class="fu">git</span> add <span class="at">-A</span> .</span>
-<span id="cb5-10"><a href=""></a><span class="fu">git</span> config user.name github-actions</span>
-<span id="cb5-11"><a href=""></a><span class="fu">git</span> config user.email github-actions@github.com</span>
-<span id="cb5-12"><a href=""></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"GH Action: Update Pilot 5 ECTD bundle"</span></span>
-<span id="cb5-13"><a href=""></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin main</span>
-<span id="cb5-14"><a href=""></a></span>
-<span id="cb5-15"><a href=""></a><span class="bu">echo</span> <span class="st">"Updated ECTD bundle successfully to repository"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href=""></a><span class="co"># Set up file paths</span></span>
+<span id="cb6-2"><a href=""></a><span class="va">ECTD_REPO_DIR</span><span class="op">=</span>submissions-pilot5-datasetjson-to-fda</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="co"># Navigate to clone of ECTD repo</span></span>
+<span id="cb6-5"><a href=""></a><span class="bu">cd</span> <span class="st">"./</span><span class="va">${ECTD_REPO_DIR}</span><span class="st">"</span></span>
+<span id="cb6-6"><a href=""></a><span class="bu">echo</span> <span class="st">"Open root of ECTD GitHub Repo"</span></span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a><span class="co"># Commit updated bundle to repository</span></span>
+<span id="cb6-9"><a href=""></a><span class="fu">git</span> add <span class="at">-A</span> .</span>
+<span id="cb6-10"><a href=""></a><span class="fu">git</span> config user.name github-actions</span>
+<span id="cb6-11"><a href=""></a><span class="fu">git</span> config user.email github-actions@github.com</span>
+<span id="cb6-12"><a href=""></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="st">"GH Action: Update Pilot 5 ECTD bundle"</span></span>
+<span id="cb6-13"><a href=""></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin main</span>
+<span id="cb6-14"><a href=""></a></span>
+<span id="cb6-15"><a href=""></a><span class="bu">echo</span> <span class="st">"Updated ECTD bundle successfully to repository"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/scripts/push-ectd-bundle.sh">Pilot 5 Push eCTD Bundle Script</a></p>
@@ -581,17 +685,17 @@ Eli Miller, Ben Straub, Eric Nantz
 <p>Run <strong>automatically</strong> on each push to main branch event</p>
 <div class="codewindow" style="font-size: 0.6em;">
 <p>publish-ectd-bundle.yaml</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create ECTD bundle</span></span>
-<span id="cb6-2"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/create-ectd-bundle.sh</span></span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Archive ECTD bundle</span></span>
-<span id="cb6-5"><a href=""></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
-<span id="cb6-6"><a href=""></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb6-7"><a href=""></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ectd-bundle-archive</span></span>
-<span id="cb6-8"><a href=""></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> submissions-pilot5-datasetjson-to-fda</span></span>
-<span id="cb6-9"><a href=""></a></span>
-<span id="cb6-10"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push ECTD bundle repository</span></span>
-<span id="cb6-11"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/push-ectd-bundle.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create ECTD bundle</span></span>
+<span id="cb7-2"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/create-ectd-bundle.sh</span></span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Archive ECTD bundle</span></span>
+<span id="cb7-5"><a href=""></a><span class="at">  </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/upload-artifact@v4</span></span>
+<span id="cb7-6"><a href=""></a><span class="at">  </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb7-7"><a href=""></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ectd-bundle-archive</span></span>
+<span id="cb7-8"><a href=""></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> submissions-pilot5-datasetjson-to-fda</span></span>
+<span id="cb7-9"><a href=""></a></span>
+<span id="cb7-10"><a href=""></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Push ECTD bundle repository</span></span>
+<span id="cb7-11"><a href=""></a><span class="at">  </span><span class="fu">run</span><span class="kw">:</span><span class="at"> bash ./.github/scripts/push-ectd-bundle.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="footer">
 <p><a href="https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/workflows/publish-ectd-bundle.yaml">Pilot 5 Publish eCTD Bundle Repository Action</a></p>
