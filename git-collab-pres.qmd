@@ -211,9 +211,11 @@ Manually generated ADRG from pilot 3
 
 :::{.column width="50%"}
 
-LLM generated ADRG in pilot 5
+🤖LLM generated ADRG in pilot 5
 
 ![](images/LLMADRG.png)
+
+![](images/ellmerPackage.png){height="200px"}
 
 :::
 
@@ -221,6 +223,17 @@ LLM generated ADRG in pilot 5
 
 ::: aside
 * Courtesy of [Ning Leng](mailto:leng.ning@gene.com) ✨
+:::
+
+:::{.notes}
+
+One of the ways we utilized LLM in pilot 5. 
+
+Please review the following R code and identify the variables used, along with the corresponding datasets they belong to. …”
+
+"Please review the following R code and identify the filtering criteria applied…”
+
+
 :::
 
 ## LLM & ADRG with btw
@@ -257,6 +270,14 @@ btw(
 * Thanks Ning!
 :::
 
+:::{.notes}
+
+Here Ning used the `btw` package which wraps around the ellmer package and can inject your R 
+environment and objects so an LLM can understand them. R objects, packages, functions, and 
+documentation can be fed in to describe what your code in R is actually doing. On the right you see...
+
+:::
+
 # Git/GitHub
 
 ## Gitflow
@@ -291,9 +312,17 @@ _Our goals_:
 
 In the past years I've seen a lot of different ways of using Git. Found a few main benifits from a well crafted gitflow. 
 
-Max Dev work. 
+Max Dev work. Biggest tripping point I see. Make sure all parts of the gitflow are needed and not just in place because you see others do it. Devleopers should not need to shepard their code through the gitflow process, they should only need to focus on developing and testing.
 
-Build from the ground up. Don't implement because you see it on this slide, or saw someone else do it
+Max Code quality. test driven development can help. Make sure tests are run, all value-add quality checks are there. and codeowners are doing meaningful reviews
+
+Max Code Velocity. Make sure all steps are needed and everyone knows who is reviewing, reviewing for what, and why they're reviewing. Tests are running quickly, code is deployed quickly. And releases and tags are made available
+
+Build from the ground up with a focus on quality, development, and users. Don't implement because you see it on this slide, or saw someone else do it
+
+On the left I have an example of an easy gitflow. Even this one could be overengineered. 
+
+To start your development efforts are in their own seperate feature branches, which are then merged into a staging environment. I see a lot of QA work being done in staging environments before it gets pushed into production. Once approaved in stage, it can have a final round of checks done, pushed to the main branch, deployed to production, and tagged. 
 
 ::: 
 
@@ -305,7 +334,7 @@ Code moving between branches or a transision of "state." A structured way for re
 
 :::{.notes}
 
-Eli's notes
+Here is an example of a pull request in pilot 5 and you can see a few different things in the pull request process. You can see Ben commenting the team and individual contriutors, Checks successfully passing, and some automation in the GitHub project to help us prioritize work
 
 :::
 
@@ -334,7 +363,7 @@ Eli's notes
 
 :::{.notes}
 
-Eli's notes
+Diving in deeper, here are some examples of some workflows that we run. A lot of these are taken from r-lib, pharmaverse, and other contrubutors. We check for code style, code linting(which is different somehow), a spell check, testing, test coverage, and an R CMD check. Before any code gets into the main branch it has to pass these tests. When doing development you get very clear and actionalbe feedback on what to do.
 
 :::
 
@@ -377,7 +406,9 @@ res <- chat$chat_structured(
 
 :::{.notes}
 
-Eli's notes
+Above we had some of the QC checks for pilot 5. One of the issues we had with some of the pilots were ... And we thought to lean on some LLM to do the QC checking. Like Ning's example above, this uses the ellmer package to give us a stucutred result that could give us a list of differneces to comment to the users, a boolean result on whether or not the TLFs are the same, and a score noting how different they are.
+
+This is sent to an LLM which evaluates the two images, describes the differences, determines if these differences are material, then a comment is added to note all of these.
 
 :::
 
@@ -389,7 +420,7 @@ Code being deployed out to the world
 
 :::{.notes}
 
-Eli's notes
+Finally, once code is pushed into a staging or main branch, the code should be ready to go. Part of a good workflow should be to automatically push your approved code to a deployment environment. Doing this manually can be error prone and can work. In this example you can see some documentation of this presentation being deployed! You can see the most active version, who deployed it, and when.
 
 :::
 
