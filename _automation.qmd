@@ -144,7 +144,7 @@ publish-ectd-bundle.yaml
 [Pilot 5 Publish eCTD Bundle Repository Action](https://github.com/RConsortium/submissions-pilot5-datasetjson/blob/main/.github/workflows/publish-ectd-bundle.yaml)
 :::
 
-## Automation for the Win {background-image="images/pilot5_ectd_repo.png" background-size="45%"}
+## Automation for the Win {background-image="images/pilot5_ectd_repo.png" background-size="35%"}
 
 ::: footer
 [Pilot 5 eCTD Bundle Repository](https://github.com/RConsortium/submissions-pilot5-datasetjson-to-fda)
